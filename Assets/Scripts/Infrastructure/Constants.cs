@@ -2,6 +2,7 @@ namespace Infrastructure
 {
     public static class Constants
     {
-        public static readonly string GameSceneAssetId = "GameScene";
+        public const string LobbyScene = "LobbyScene";
+        public const string GameplayScene = "GameplayScene";
     }
 }

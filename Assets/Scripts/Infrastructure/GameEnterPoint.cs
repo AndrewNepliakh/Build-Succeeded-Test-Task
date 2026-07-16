@@ -25,7 +25,7 @@ namespace Infrastructure
             _userManager.Init(saveData.UserData);
             _saveManager.Save(saveData);
 
-            _gameManager.LoadScene(Constants.GameSceneAssetId, LoadSceneMode.Single);
+            _gameManager.LoadScene(Constants.LobbyScene, LoadSceneMode.Single);
         }
     }
 }
