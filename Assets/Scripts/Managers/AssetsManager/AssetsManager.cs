@@ -50,6 +50,7 @@ namespace Managers
             _diContainer.InjectGameObject(instance);
 
             var rectTransform = instance.GetComponent<RectTransform>();
+            
             if (rectTransform != null)
             {
                 rectTransform.localPosition = Vector3.zero;

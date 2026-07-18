@@ -1,7 +1,6 @@
 using Zenject;
 using Services;
 using UnityEngine;
-using System.Threading.Tasks;
 
 namespace Controllers
 {
@@ -16,14 +15,6 @@ namespace Controllers
         {
             _gameplayStateMachine.AddState(winGameplayState);
             _gameplayStateMachine.AddState(loseGameplayState);
-        }
-
-        public async void StartGameplay()
-        {
-            while (_gameplayStateMachine == null)
-            {
-                await Task.Yield();
-            }
             
             _gameplayStateMachine.ChangeState(GameplayStates.Initial);
         }
