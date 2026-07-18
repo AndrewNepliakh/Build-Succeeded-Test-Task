@@ -20,14 +20,11 @@ namespace Managers
         {
             if (_currentLevel)
             {
-                _assetsManager.ReleaseInstance(_currentLevel.gameObject);
                 _currentLevel = null;
             }
 
             var userSaveData = _saveManager.Load<UserSaveData>();
-            var levelIndex = userSaveData.UserData.LevelNumber;
-            
-            _levelPrefab = _levelsConfig.LevelConfigDatas[levelIndex].LevelPrefab;
+            var levelIndex = userSaveData.UserData.CurrentLevel;
         }
     }
 }

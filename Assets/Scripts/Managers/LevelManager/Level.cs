@@ -6,7 +6,7 @@ namespace Managers
     {
         public void Init(LevelsArguments args)
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }
