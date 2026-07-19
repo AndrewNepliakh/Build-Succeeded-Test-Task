@@ -6,9 +6,9 @@ using UnityEngine;
 
 namespace Managers
 {
-    public partial class LevelConfig
+    public partial class BoxesGridConfig
     {
-        protected static BoxData DrawCell(Rect rect, BoxData value)
+        protected static BoxData DrawGrid(Rect rect, BoxData value)
         {
             Color background = value.Color switch
             {
@@ -40,7 +40,6 @@ namespace Managers
 
             if (rect.Contains(e.mousePosition) && e.type == EventType.MouseDown)
             {
-                // ЛКМ - следующий цвет
                 if (e.button == 0)
                 {
                     if (value.Color == BoxColor.None)
@@ -50,7 +49,7 @@ namespace Managers
                     }
                     else
                     {
-                        int colorCount = Enum.GetValues(typeof(BoxColor)).Length - 1; // без None
+                        int colorCount = Enum.GetValues(typeof(BoxColor)).Length - 1;
 
                         int colorIndex = (int)value.Color;
                         colorIndex++;
@@ -64,8 +63,7 @@ namespace Managers
                     GUI.changed = true;
                     e.Use();
                 }
-
-                // ПКМ - изменить высоту
+                
                 if (e.button == 1)
                 {
                     if (value.Color != BoxColor.None)

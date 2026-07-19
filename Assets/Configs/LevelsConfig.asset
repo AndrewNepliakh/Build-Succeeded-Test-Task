@@ -31,15 +31,28 @@ MonoBehaviour:
     - Name: 
       Entry: 7
       Data: 1|Managers.LevelConfigData, Assembly-CSharp
-    - Name: _levelDataIndex
+    - Name: _levelIndex
       Entry: 3
       Data: 0
-    - Name: LevelConfig
+    - Name: _boxesBlockConfigs
       Entry: 7
-      Data: 2|Managers.LevelConfig, Assembly-CSharp
+      Data: 2|System.Collections.Generic.List`1[[Managers.BoxesBlockConfig, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 3|Managers.BoxesBlockConfig, Assembly-CSharp
+    - Name: _blockIndex
+      Entry: 3
+      Data: 0
+    - Name: boxesGridConfig
+      Entry: 7
+      Data: 4|Managers.BoxesGridConfig, Assembly-CSharp
     - Name: Grid
       Entry: 7
-      Data: 3|Managers.BoxData[,], Assembly-CSharp
+      Data: 5|Managers.BoxData[,], Assembly-CSharp
     - Name: 
       Entry: 12
       Data: 100
@@ -1251,6 +1264,15 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
       Data: 
     - Name: 
       Entry: 8

@@ -1,17 +1,18 @@
 using System;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using System.Collections.Generic;
 
 namespace Managers
 {
     [Serializable]
-    public partial class LevelConfigData
+    public class LevelConfigData
     {
         [OdinSerialize][PropertyOrder(-1000)]
-        private int _levelDataIndex;
+        private int _levelIndex;
+        public int LevelIndex => _levelIndex;
         
-        public int LevelDataIndex => _levelDataIndex;
-
-        [OdinSerialize] public LevelConfig LevelConfig = new();
+        [OdinSerialize] private List<BoxesBlockConfig> _boxesBlockConfigs = new();
+        public List<BoxesBlockConfig> BoxesBlockConfigs => _boxesBlockConfigs;
     }
 }
