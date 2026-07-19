@@ -105,7 +105,7 @@ namespace Managers
             {
                 for (int y = 0; y < BoxesGridConfig.Height; y++)
                 {
-                    boxesGridConfig.Grid[x, y] = new BoxData
+                    BoxesGridConfig.Grid[x, y] = new BoxData
                     {
                         Color = _fillColor,
                         StackHeight = _fillStackHeight
@@ -125,7 +125,7 @@ namespace Managers
             {
                 for (int x = 0; x < BoxesGridConfig.Width; x++)
                 {
-                    boxesGridConfig.Grid[x, y] = new BoxData
+                    BoxesGridConfig.Grid[x, y] = new BoxData
                     {
                         Color = _fillColor,
                         StackHeight = _fillStackHeight
@@ -154,7 +154,7 @@ namespace Managers
             {
                 for (int y = 0; y < BoxesGridConfig.Height; y++)
                 {
-                    boxesGridConfig.Grid[x, y] = new BoxData
+                    BoxesGridConfig.Grid[x, y] = new BoxData
                     {
                         Color = BoxColor.None,
                         StackHeight = 0

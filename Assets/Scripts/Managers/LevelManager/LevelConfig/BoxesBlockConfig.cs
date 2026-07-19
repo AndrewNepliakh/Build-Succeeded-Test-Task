@@ -7,10 +7,8 @@ namespace Managers
     [Serializable]
     public partial class BoxesBlockConfig
     {
-        [OdinSerialize][PropertyOrder(-1000)]
-        private int _blockIndex;
-        public int BlockIndex => _blockIndex;
+        [OdinSerialize] private BoxesGridConfig _boxesGridConfig = new();
 
-        [OdinSerialize] public BoxesGridConfig boxesGridConfig = new();
+        public BoxesGridConfig BoxesGridConfig => _boxesGridConfig;
     }
 }
