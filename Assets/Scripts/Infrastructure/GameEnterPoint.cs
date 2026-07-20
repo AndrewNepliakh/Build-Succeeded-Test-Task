@@ -16,7 +16,7 @@ namespace Infrastructure
 
         private void Start()
         {
-            _gameManager.LoadScene(Constants.LobbyScene, LoadSceneMode.Single);
+            _gameManager.LoadScene(Constants.GameScene, LoadSceneMode.Single);
         }
     }
 }

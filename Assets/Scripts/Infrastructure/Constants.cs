@@ -4,7 +4,6 @@ namespace Infrastructure
     {
         public const int BoxPortion = 15;
         
-        public const string LobbyScene = "LobbyScene";
-        public const string GameplayScene = "GameplayScene";
+        public const string GameScene = "GameScene";
     }
 }

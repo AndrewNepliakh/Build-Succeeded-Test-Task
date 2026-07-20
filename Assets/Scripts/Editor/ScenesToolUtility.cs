@@ -7,9 +7,6 @@ public class ScenesToolUtility
     [MenuItem("Scenes/InitialScene", false, 1)]
     public static void InitialScene() => OpenEditorScene("InitialScene");
 
-    [MenuItem("Scenes/LobbyScene", false, 2)]
-    public static void LobbyScene() => OpenEditorScene("LobbyScene");
-
     [MenuItem("Scenes/GameScene", false, 3)]
     public static void GameScene() => OpenEditorScene("GameScene");
 

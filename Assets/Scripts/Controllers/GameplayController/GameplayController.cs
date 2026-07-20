@@ -10,9 +10,11 @@ namespace Controllers
 
         [Inject]
         private void Instantiation(
+            InitialGameplayState initialGameplayState,
             WinGameplayState winGameplayState,
             LoseGameplayState loseGameplayState)
         {
+            _gameplayStateMachine.AddState(initialGameplayState);
             _gameplayStateMachine.AddState(winGameplayState);
             _gameplayStateMachine.AddState(loseGameplayState);
             
