@@ -1,30 +1,19 @@
 using Zenject;
+using System.Collections.Generic;
 
 namespace Managers
 {
     public class LevelManager : ILevelManager
     {
         [Inject] private LevelsConfig _levelsConfig;
-        
         [Inject] private ISaveManager _saveManager;
 
-        private Level _currentLevel;
-        
-        public Level CurrentLevel
+        public List<BoxesGridConfig> GetBoxesGridConfigsOfCurrentLevel()
         {
-            get => _currentLevel;
-            set => _currentLevel = value;
-        }
-        
-        public void Init()
-        {
-            if (_currentLevel)
-            {
-                _currentLevel = null;
-            }
+            var progressSaveData = _saveManager.Load<ProgressSaveData>();
+            var currentLevel = progressSaveData.CurrentLevel;
 
-            var userSaveData = _saveManager.Load<UserSaveData>();
-            var levelIndex = userSaveData.UserData.CurrentLevel;
+            return _levelsConfig.GetBoxesGridConfigsByLevel(currentLevel);
         }
     }
 }

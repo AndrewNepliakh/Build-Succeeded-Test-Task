@@ -1,4 +1,5 @@
 using System;
+using Entities;
 using System.Collections.Generic;
 
 namespace Managers
@@ -7,9 +8,7 @@ namespace Managers
     {
         private static readonly Dictionary<Type, string> Addresses = new()
         {
-            // { typeof(MainMenu), "UI/MainMenu" },
-            // { typeof(SettingsPopup), "UI/SettingsPopup" },
-            // { typeof(GameHUD), "UI/GameHUD" },
+            { typeof(Box), "Box" },
         };
 
         public static string Get<T>()

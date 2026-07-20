@@ -1,8 +1,9 @@
+using System.Collections.Generic;
+
 namespace Managers
 {
     public interface ILevelManager
     {
-        public Level CurrentLevel { get; }
-        void Init();
+        List<BoxesGridConfig> GetBoxesGridConfigsOfCurrentLevel();
     }
 }

@@ -9,7 +9,6 @@ namespace Infrastructure
         {
             SignalBusInstaller.Install(Container);
             
-            Container.Bind<IUserManager>().To<UserManager>().AsSingle().NonLazy();
             Container.Bind<ISaveManager>().To<SaveManager>().AsSingle().NonLazy();
 
             Container.Bind(typeof(IGameManager), typeof(IInitializable)).To<GameManager>().AsSingle().NonLazy();

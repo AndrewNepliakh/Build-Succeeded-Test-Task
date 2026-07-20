@@ -1,20 +1,20 @@
 using Zenject;
-using Controllers;
+using Managers;
 using System.Threading.Tasks;
 
 namespace Services
 {
     public class InitialGameplayState : IState<GameplayStates>
     {
+        [Inject] private IBoxManager _boxManager;
+        
         public GameplayStates State => GameplayStates.Initial;
 
         [Inject] private GameplayStateMachine<GameplayStates> _gameplayStateMachine;
-        [Inject] private InitialGameplayStateController _controller;
 
         public async Task Enter(ChangeStateData changeStateData)
         {
-            _controller.OnStateComplete += StateCompleteHandler;
-            await _controller.Init(changeStateData);
+            await _boxManager.FillInitialBoxGrid();
         }
 
         private void StateCompleteHandler()
@@ -24,7 +24,7 @@ namespace Services
 
         public void Exit()
         {
-            _controller.OnStateComplete -= StateCompleteHandler;
+            
         }
     }
 }
