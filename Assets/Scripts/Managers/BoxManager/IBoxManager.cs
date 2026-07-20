@@ -6,8 +6,9 @@ namespace Managers
 {
     public interface IBoxManager
     {
-        Task FillInitialBoxGrid();
+        void InitiateAllBoxDatasPerColumns();
         void InitiatePreallocatedBoxes();
+        Task CreateBufferBoxes();
         void Initiate(Transform[] columsParents, Box[] preallocatedBoxes);
     }
 }

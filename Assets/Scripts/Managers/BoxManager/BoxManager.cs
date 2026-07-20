@@ -1,9 +1,10 @@
-using System.Linq;
+using Zenject;
 using Entities;
 using Services;
-using Zenject;
+using System.Linq;
 using UnityEngine;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Managers
 {
@@ -11,27 +12,50 @@ namespace Managers
     {
         [Inject] private ILevelManager _levelManager;
         [Inject] private IPoolService _poolService;
-        
+
         [Inject] private DiContainer _diContainer;
 
         private Transform[] _columnParents;
         private Box[] _preallocatedBoxes;
-        
+
+        private readonly Dictionary<int, List<BoxData>> _boxDatasPerColumns = new ();
+        private readonly Dictionary<int, int> _nextBoxDataIndexPerColumn = new();
+
         public void Initiate(Transform[] columnParents, Box[] preallocatedBoxes)
         {
             _columnParents = columnParents;
             _preallocatedBoxes = preallocatedBoxes;
         }
 
+        public void InitiateAllBoxDatasPerColumns()
+        {
+            _boxDatasPerColumns.Clear();
+            _nextBoxDataIndexPerColumn.Clear();
+
+            var boxesGridConfigs = _levelManager.GetBoxesGridConfigsOfCurrentLevel();
+
+            for (var column = 0; column < BoxesGridConfig.Width; column++)
+            {
+                _boxDatasPerColumns[column] = new List<BoxData>();
+                _nextBoxDataIndexPerColumn[column] = 0;
+            }
+
+            foreach (var boxesGridConfig in boxesGridConfigs)
+            {
+                for (var column = 0; column < BoxesGridConfig.Width; column++)
+                {
+                    for (var row = BoxesGridConfig.Height - 1; row >= 0; row--)
+                    {
+                        _boxDatasPerColumns[column].Add(boxesGridConfig.Grid[column, row]);
+                    }
+                }
+            }
+        }
+
         public void InitiatePreallocatedBoxes()
         {
-            var boxesGridConfigs = _levelManager.GetBoxesGridConfigsOfCurrentLevel();
-            var initialBoxGridConfig = boxesGridConfigs[0];
-
-            var grid = initialBoxGridConfig.Grid;
-
-            var rows = grid.GetLength(0);
-            var columns = grid.GetLength(1);
+            var rows = BoxesGridConfig.Height;
+            var columns = BoxesGridConfig.Width;
 
             var boxesByArrayIndex = _preallocatedBoxes.ToDictionary(
                 box => box.GetComponent<ArrayIndexMarker>().ArrayIndex);
@@ -45,33 +69,42 @@ namespace Managers
                     if (boxesByArrayIndex.TryGetValue(arrayIndex, out var box))
                     {
                         _diContainer.InjectGameObject(box.gameObject);
-                        box.Initiate(grid[y, x]);
+
+                        var boxDataIndex = _nextBoxDataIndexPerColumn[y];
+
+                        box.Initiate(_boxDatasPerColumns[y][boxDataIndex]);
+
+                        _nextBoxDataIndexPerColumn[y]++;
+
                         _poolService.Register(box);
                     }
-                    
-                    Debug.LogError($"Box with ArrayIndex {arrayIndex} was not found.");
+                    else
+                    {
+                        Debug.LogError($"Box with ArrayIndex {arrayIndex} was not found.");
+                    }
                 }
             }
         }
 
-        public async Task FillInitialBoxGrid()
+        public async Task CreateBufferBoxes()
         {
-            var boxesGridConfigs = _levelManager.GetBoxesGridConfigsOfCurrentLevel();
-            var initialBoxGridConfig = boxesGridConfigs[0];
+            const int bufferRows = 5;
+            var columns = BoxesGridConfig.Width;
 
-            var grid = initialBoxGridConfig.Grid;
-
-            var rows = grid.GetLength(0);
-            var columns = grid.GetLength(1);
-
-            for (var x = rows - 1; x >= 0; x--)
+            for (var row = 0; row < bufferRows; row++)
             {
-                for (var y = 0; y < columns; y++)
+                for (var column = 0; column < columns; column++)
                 {
-                    var boxData = grid[y, x];
+                    var boxDataIndex = _nextBoxDataIndexPerColumn[column];
 
-                    var worldX = columns - 1 - y;
-                    var worldZ = x;
+                    if (boxDataIndex >= _boxDatasPerColumns[column].Count)
+                        continue;
+
+                    var boxData = _boxDatasPerColumns[column][boxDataIndex];
+                    _nextBoxDataIndexPerColumn[column]++;
+
+                    var worldX = columns - 1 - column;
+                    var worldZ = -(row + 1);
 
                     var position = new Vector3(worldX, 0, worldZ);
 

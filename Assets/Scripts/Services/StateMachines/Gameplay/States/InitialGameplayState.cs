@@ -1,6 +1,8 @@
+using System;
 using Zenject;
 using Managers;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Services
 {
@@ -14,8 +16,19 @@ namespace Services
 
         public async Task Enter(ChangeStateData changeStateData)
         {
-            _boxManager.InitiatePreallocatedBoxes();
-            //await _boxManager.FillInitialBoxGrid();
+            try
+            {
+                _boxManager.InitiateAllBoxDatasPerColumns();
+                
+                _boxManager.InitiatePreallocatedBoxes();
+                
+                await _boxManager.CreateBufferBoxes();
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+                throw;
+            }
         }
 
         private void StateCompleteHandler()
