@@ -1,3 +1,4 @@
+using Entities;
 using Zenject;
 using Managers;
 using Services;
@@ -11,6 +12,7 @@ namespace Controllers
         [Inject] private IBoxManager _boxManager;
 
         [SerializeField] private Transform[] _columnParents = new Transform[BoxesGridConfig.Width];
+        [SerializeField] private Box[] _preallocatedBoxes = new Box[BoxesGridConfig.Width * BoxesGridConfig.Height];
 
         [Inject]
         private void Initiate(
@@ -22,8 +24,8 @@ namespace Controllers
             _gameplayStateMachine.AddState(winGameplayState);
             _gameplayStateMachine.AddState(loseGameplayState);
 
-            _boxManager.Initiate(_columnParents);
-            
+            _boxManager.Initiate(_columnParents, _preallocatedBoxes);
+
             _gameplayStateMachine.ChangeState(GameplayStates.Initial);
         }
     }

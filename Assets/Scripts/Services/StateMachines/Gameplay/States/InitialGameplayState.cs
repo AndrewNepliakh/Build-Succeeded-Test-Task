@@ -14,7 +14,8 @@ namespace Services
 
         public async Task Enter(ChangeStateData changeStateData)
         {
-            await _boxManager.FillInitialBoxGrid();
+            _boxManager.InitiatePreallocatedBoxes();
+            //await _boxManager.FillInitialBoxGrid();
         }
 
         private void StateCompleteHandler()
