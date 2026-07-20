@@ -18,6 +18,8 @@ namespace Services
         void Despawn(IPoolable poolable);
 
         void Destroy(IPoolable poolable);
+        
+        void Register(IPoolable poolable);
 
         void Clear();
     }

@@ -11,6 +11,8 @@ namespace Managers
     {
         [Inject] private ILevelManager _levelManager;
         [Inject] private IPoolService _poolService;
+        
+        [Inject] private DiContainer _diContainer;
 
         private Transform[] _columnParents;
         private Box[] _preallocatedBoxes;
@@ -42,12 +44,12 @@ namespace Managers
 
                     if (boxesByArrayIndex.TryGetValue(arrayIndex, out var box))
                     {
+                        _diContainer.InjectGameObject(box.gameObject);
                         box.Initiate(grid[y, x]);
+                        _poolService.Register(box);
                     }
-                    else
-                    {
-                        Debug.LogError($"Box with ArrayIndex {arrayIndex} was not found.");
-                    }
+                    
+                    Debug.LogError($"Box with ArrayIndex {arrayIndex} was not found.");
                 }
             }
         }

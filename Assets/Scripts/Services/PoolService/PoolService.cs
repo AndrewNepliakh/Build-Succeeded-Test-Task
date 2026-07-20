@@ -2,8 +2,8 @@ using System;
 using Zenject;
 using Managers;
 using UnityEngine;
-using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Services
 {
@@ -13,6 +13,7 @@ namespace Services
 
         private readonly Dictionary<Type, Queue<IPoolable>> _pool = new();
         private readonly Dictionary<Type, Transform> _parents = new();
+        private readonly Dictionary<Type, HashSet<IPoolable>> _registered = new();
 
         private Transform _root;
 
@@ -136,6 +137,19 @@ namespace Services
                 return;
 
             _assetsManager.Release(poolable.GameObject);
+        }
+        
+        public void Register(IPoolable poolable)
+        {
+            var type = poolable.GetType();
+
+            if (!_registered.TryGetValue(type, out var set))
+            {
+                set = new HashSet<IPoolable>();
+                _registered[type] = set;
+            }
+
+            set.Add(poolable);
         }
 
         public void Clear()
