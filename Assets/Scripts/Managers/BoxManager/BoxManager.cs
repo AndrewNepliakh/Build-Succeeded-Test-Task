@@ -11,6 +11,13 @@ namespace Managers
         [Inject] private ILevelManager _levelManager;
         [Inject] private IPoolService _poolService;
 
+        private Transform[] _columnParents;
+        
+        public void Initiate(Transform[] columnParents)
+        {
+            _columnParents = columnParents;
+        }
+
         public async Task FillInitialBoxGrid()
         {
             var boxesGridConfigs = _levelManager.GetBoxesGridConfigsOfCurrentLevel();
@@ -25,10 +32,19 @@ namespace Managers
             {
                 for (var y = 0; y < columns; y++)
                 {
-                    var boxData = grid[x, y];
-                    var position = new Vector3(columns - 1 - y, 0, rows - 1 - x);
-                    var box = await _poolService.Spawn<Box>(position, Quaternion.identity);
-                    box.Init(boxData);
+                    var boxData = grid[y, x];
+
+                    var worldX = columns - 1 - y;
+                    var worldZ = x;
+
+                    var position = new Vector3(worldX, 0, worldZ);
+
+                    var box = await _poolService.Spawn<Box>(
+                        position,
+                        Quaternion.identity,
+                        _columnParents[worldX]);
+
+                    box.Initiate(boxData);
                 }
             }
         }

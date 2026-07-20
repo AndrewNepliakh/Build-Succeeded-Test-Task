@@ -1587,7 +1587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 238691954}
   m_Layer: 0
-  m_Name: BoxSpawnPoint (5)
+  m_Name: BoxSpawnParent 5
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1650,7 +1650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 252682702}
   m_Layer: 0
-  m_Name: BoxSpawnPoint (3)
+  m_Name: BoxSpawnParent 3
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -6404,7 +6404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 851124378}
   m_Layer: 0
-  m_Name: BoxSpawnPoint (2)
+  m_Name: BoxSpawnParent 2
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -6879,7 +6879,7 @@ GameObject:
   m_Component:
   - component: {fileID: 936359227}
   m_Layer: 0
-  m_Name: BoxSpawnPoint
+  m_Name: BoxSpawnParent 0
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -6945,7 +6945,7 @@ GameObject:
   m_Component:
   - component: {fileID: 976198295}
   m_Layer: 0
-  m_Name: BoxSpawnPoint (7)
+  m_Name: BoxSpawnParent 7
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -7008,7 +7008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 985725229}
   m_Layer: 0
-  m_Name: BoxSpawnPoint (6)
+  m_Name: BoxSpawnParent 6
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -8552,7 +8552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1144921604}
   m_Layer: 0
-  m_Name: BoxSpawnPoint (9)
+  m_Name: BoxSpawnParent 9
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -9462,7 +9462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1228044632}
   m_Layer: 0
-  m_Name: BoxSpawnPoint (4)
+  m_Name: BoxSpawnParent 4
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -11121,7 +11121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1489052625}
   m_Layer: 0
-  m_Name: BoxesSpawnPoints
+  m_Name: BoxesSpawnParents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13561,7 +13561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1673822561}
   m_Layer: 0
-  m_Name: BoxSpawnPoint (8)
+  m_Name: BoxSpawnParent 8
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -14973,6 +14973,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c816003d7bf44b09022bea27916f872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Controllers.GameplayController
+  _columnParents:
+  - {fileID: 936359227}
+  - {fileID: 1844281618}
+  - {fileID: 851124378}
+  - {fileID: 252682702}
+  - {fileID: 1228044632}
+  - {fileID: 238691954}
+  - {fileID: 985725229}
+  - {fileID: 976198295}
+  - {fileID: 1673822561}
+  - {fileID: 1144921604}
 --- !u!1001 &1831479882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15199,7 +15210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1844281618}
   m_Layer: 0
-  m_Name: BoxSpawnPoint (1)
+  m_Name: BoxSpawnParent 1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

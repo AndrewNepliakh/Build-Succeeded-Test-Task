@@ -45,6 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32bfd72dfb804f658799a13cff3f3e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.Box
+  _renderer: {fileID: 8396771502427603736}
+  _materials:
+  - {fileID: 2100000, guid: e2eb6d52e642c4b8e93ee39e9e368e8d, type: 2}
+  - {fileID: 2100000, guid: 47dc093f0bc794a08b2519cdd93fec78, type: 2}
+  - {fileID: 2100000, guid: 7246ec6b5d44c4c0a9d3c42208d6f571, type: 2}
+  - {fileID: 2100000, guid: 0a46e482a75d3465e8acf69c7fb18ade, type: 2}
+  - {fileID: 2100000, guid: 69c4e3f3d896049ed90a79374c3b326a, type: 2}
 --- !u!1001 &7153623381327257500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105,6 +112,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5078bccc4e681447b99e140a6c49bcf6, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a46e482a75d3465e8acf69c7fb18ade, type: 2}
     - target: {fileID: 919132149155446097, guid: 5078bccc4e681447b99e140a6c49bcf6, type: 3}
       propertyPath: m_Name
       value: Box
@@ -178,3 +189,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!23 &8396771502427603736 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 5078bccc4e681447b99e140a6c49bcf6, type: 3}
+  m_PrefabInstance: {fileID: 7153623381327257500}
+  m_PrefabAsset: {fileID: 0}
