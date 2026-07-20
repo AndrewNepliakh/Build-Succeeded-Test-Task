@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "name": "GameplayInput",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "7d4cf9b5-eb9a-44fa-a5c2-4c2609698c2a",
+            "actions": [
+                {
+                    "name": "Tap",
+                    "type": "Button",
+                    "id": "443e52b8-55ff-4ff3-ae87-5785480715c7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PointerPosition",
+                    "type": "Value",
+                    "id": "9f064c61-c47a-49a2-aaf3-4577c224f1e3",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c4335616-9e99-4674-b03f-33e01885edd8",
+                    "path": "<Pointer>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "80dfc268-0e15-4ca2-9214-444603a9b4f5",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PointerPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

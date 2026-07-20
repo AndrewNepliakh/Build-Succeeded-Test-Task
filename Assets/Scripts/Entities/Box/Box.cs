@@ -27,14 +27,8 @@ namespace Entities
             _renderer.sharedMaterial = _materials[(int)boxData.Color - 1];
         }
 
-        public void OnSpawn()
-        {
+        public void OnSpawn(){}
 
-        }
-
-        public void OnDespawn()
-        {
-
-        }
+        public void OnDespawn(){}
     }
 }

@@ -310,7 +310,7 @@ MonoBehaviour:
       Data: Managers.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 5
+      Data: 1
     - Name: StackHeight
       Entry: 3
       Data: 1
@@ -322,31 +322,7 @@ MonoBehaviour:
       Data: Managers.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 4
-    - Name: StackHeight
-      Entry: 3
       Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 3
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 2
     - Name: StackHeight
       Entry: 3
       Data: 1
@@ -370,7 +346,7 @@ MonoBehaviour:
       Data: Managers.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 5
+      Data: 1
     - Name: StackHeight
       Entry: 3
       Data: 1
@@ -382,7 +358,7 @@ MonoBehaviour:
       Data: Managers.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 4
+      Data: 1
     - Name: StackHeight
       Entry: 3
       Data: 1
@@ -394,7 +370,7 @@ MonoBehaviour:
       Data: Managers.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 3
+      Data: 1
     - Name: StackHeight
       Entry: 3
       Data: 1
@@ -406,7 +382,31 @@ MonoBehaviour:
       Data: Managers.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 2
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
     - Name: StackHeight
       Entry: 3
       Data: 1
@@ -1405,115 +1405,7 @@ MonoBehaviour:
       Data: Managers.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 3
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
       Data: 2
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 2
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 2
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 2
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 2
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 2
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 2
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 2
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 5
     - Name: StackHeight
       Entry: 3
       Data: 1
@@ -1633,211 +1525,7 @@ MonoBehaviour:
       Data: Managers.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 4
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 1
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 1
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 1
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 1
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 1
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 1
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 1
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 1
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 1
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 1
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 4
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 1
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 1
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 1
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 1
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 1
-    - Name: StackHeight
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Managers.BoxData, Assembly-CSharp
-    - Name: Color
-      Entry: 3
-      Data: 1
+      Data: 2
     - Name: StackHeight
       Entry: 3
       Data: 1
@@ -1850,6 +1538,318 @@ MonoBehaviour:
     - Name: Color
       Entry: 3
       Data: 2
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 2
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 2
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 2
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 2
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 2
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 2
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 2
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 2
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: StackHeight
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Managers.BoxData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
     - Name: StackHeight
       Entry: 3
       Data: 1
