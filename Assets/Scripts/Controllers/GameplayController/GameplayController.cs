@@ -1,18 +1,21 @@
-using Entities;
 using Zenject;
 using Managers;
 using Services;
+using Entities;
 using UnityEngine;
 
 namespace Controllers
 {
     public class GameplayController : MonoBehaviour
     {
+        public const int BufferPreallocatedBoxesRows = 5;
+        
         [Inject] private GameplayStateMachine<GameplayStates> _gameplayStateMachine;
         [Inject] private IBoxManager _boxManager;
 
+
         [SerializeField] private Transform[] _columnParents = new Transform[BoxesGridConfig.Width];
-        [SerializeField] private Box[] _preallocatedBoxes = new Box[BoxesGridConfig.Width * BoxesGridConfig.Height];
+        [SerializeField] private Box[] _preallocatedBoxes = new Box[BoxesGridConfig.Width * BoxesGridConfig.Height + BufferPreallocatedBoxesRows];
 
         [Inject]
         private void Initiate(
@@ -27,6 +30,11 @@ namespace Controllers
             _boxManager.Initiate(_columnParents, _preallocatedBoxes);
 
             _gameplayStateMachine.ChangeState(GameplayStates.Initial);
+        }
+
+        public void SetPreallocatedBoxes(Box[] preallocatedBoxes)
+        {
+            _preallocatedBoxes = preallocatedBoxes;
         }
     }
 }

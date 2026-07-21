@@ -21,8 +21,6 @@ namespace Services
                 _boxManager.InitiateAllBoxDatasPerColumns();
                 
                 _boxManager.InitiatePreallocatedBoxes();
-                
-                await _boxManager.CreateBufferBoxes();
             }
             catch (Exception e)
             {

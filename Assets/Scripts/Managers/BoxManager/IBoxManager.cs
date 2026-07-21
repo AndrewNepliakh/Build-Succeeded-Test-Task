@@ -1,6 +1,5 @@
 using Entities;
 using UnityEngine;
-using System.Threading.Tasks;
 
 namespace Managers
 {
@@ -8,7 +7,6 @@ namespace Managers
     {
         void InitiateAllBoxDatasPerColumns();
         void InitiatePreallocatedBoxes();
-        Task CreateBufferBoxes();
         void Initiate(Transform[] columsParents, Box[] preallocatedBoxes);
     }
 }

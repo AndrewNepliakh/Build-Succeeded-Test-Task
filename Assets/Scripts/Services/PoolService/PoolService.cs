@@ -36,7 +36,7 @@ namespace Services
             Transform parent = null)
             where T : Component, IPoolable
         {
-            var instance = await Get<T>();
+            var instance = await Get<T>(position, rotation);
 
             var transform = instance.transform;
 
@@ -71,7 +71,9 @@ namespace Services
             return instance;
         }
 
-        private async Task<T> Get<T>()
+        private async Task<T> Get<T>(
+            Vector3 position,
+            Quaternion rotation)
             where T : Component, IPoolable
         {
             var type = typeof(T);
@@ -87,7 +89,7 @@ namespace Services
                 }
             }
 
-            return await _assetsManager.Instantiate<T>(Vector3.zero, Quaternion.identity);
+            return await _assetsManager.Instantiate<T>(position, rotation);
         }
 
         private async Task<T> GetUI<T>()

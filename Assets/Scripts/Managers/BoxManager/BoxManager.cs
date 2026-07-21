@@ -3,7 +3,7 @@ using Entities;
 using Services;
 using System.Linq;
 using UnityEngine;
-using System.Threading.Tasks;
+using Controllers;
 using System.Collections.Generic;
 
 namespace Managers
@@ -97,44 +97,38 @@ namespace Managers
                     }
                 }
             }
-        }
-
-        public async Task CreateBufferBoxes()
-        {
-            const int bufferRows = 5;
-            var columns = BoxesGridConfig.Width;
-
-            for (var row = 0; row < bufferRows; row++)
+            
+            for (var row = -GameplayController.BufferPreallocatedBoxesRows; row < 0; row++)
             {
                 for (var column = 0; column < columns; column++)
                 {
-                    var boxDataIndex = _nextBoxDataIndexPerColumn[column];
+                    var arrayIndex = new Vector2Int(column, row);
 
-                    if (boxDataIndex >= _boxDatasPerColumns[column].Count)
-                        continue;
-
-                    var boxData = _boxDatasPerColumns[column][boxDataIndex];
-                    _nextBoxDataIndexPerColumn[column]++;
-
-                    var worldX = columns - 1 - column;
-                    var worldZ = -(row + 1);
-
-                    var position = new Vector3(worldX, 0, worldZ);
-
-                    var box = await _poolService.Spawn<Box>(
-                        position,
-                        Quaternion.identity,
-                        _columnParents[worldX]);
-                    
-                    var args = new BoxArguments
+                    if (boxesByArrayIndex.TryGetValue(arrayIndex, out var box))
                     {
-                        BoxData = boxData,
-                        ParentColumn = _columnParents[worldX]
-                    };
+                        _diContainer.InjectGameObject(box.gameObject);
 
-                    box.Initiate(args);
-                    
-                    box.OnDestroy += ShiftColumn;
+                        var boxDataIndex = _nextBoxDataIndexPerColumn[column];
+
+                        var worldX = columns - 1 - column;
+
+                        var args = new BoxArguments
+                        {
+                            BoxData = _boxDatasPerColumns[column][boxDataIndex],
+                            ParentColumn = _columnParents[worldX]
+                        };
+
+                        box.Initiate(args);
+
+                        var damageReceiver = box.GetComponentInChildren<BoxDamageReceiver>();
+                        damageReceiver.SetCanReceiveDamage(false);
+
+                        box.OnDestroy += ShiftColumn;
+
+                        _nextBoxDataIndexPerColumn[column]++;
+
+                        _poolService.Register(box);
+                    }
                 }
             }
         }
