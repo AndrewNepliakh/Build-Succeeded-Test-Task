@@ -40,7 +40,7 @@ namespace UI
             
             if (!_popupsPool.ContainsKey(typeof(T)))
             {
-                var assetGo = await _assetsManager.Instantiate<T>(
+                var assetGo = _assetsManager.Instantiate<T>(
                     Vector3.one, 
                     Quaternion.identity,
                     parent);
@@ -89,7 +89,7 @@ namespace UI
             
             if (!_HUDPool.ContainsKey(typeof(T)))
             {
-                var assetGO = await _assetsManager.Instantiate<T>(
+                var assetGO = _assetsManager.Instantiate<T>(
                     Vector3.zero, 
                     Quaternion.identity,
                     parent);
@@ -205,7 +205,7 @@ namespace UI
                 if (popup != null)
                 {
                     popup.Hide();
-                    _assetsManager.Release(popup.GameObject);
+                    UnityEngine.Object.Destroy(popup.GameObject);
                 }
             }
 
@@ -220,7 +220,7 @@ namespace UI
                 if (hud != null)
                 {
                     hud.Hide();
-                    _assetsManager.Release(hud.GameObject);
+                    UnityEngine.Object.Destroy(hud.GameObject);
                 }
             }
 

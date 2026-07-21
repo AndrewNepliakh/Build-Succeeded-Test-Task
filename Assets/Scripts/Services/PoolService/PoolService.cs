@@ -13,7 +13,6 @@ namespace Services
 
         private readonly Dictionary<Type, Queue<IPoolable>> _pool = new();
         private readonly Dictionary<Type, Transform> _parents = new();
-        private readonly Dictionary<Type, HashSet<IPoolable>> _registered = new();
 
         private Transform _root;
 
@@ -30,13 +29,10 @@ namespace Services
             }
         }
 
-        public async Task<T> Spawn<T>(
-            Vector3 position,
-            Quaternion rotation,
-            Transform parent = null)
+        public T Spawn<T>(Vector3 position, Quaternion rotation, Transform parent = null)
             where T : Component, IPoolable
         {
-            var instance = await Get<T>(position, rotation);
+            var instance = Get<T>(position, rotation);
 
             var transform = instance.transform;
 
@@ -49,11 +45,9 @@ namespace Services
             return instance;
         }
 
-        public async Task<T> SpawnUI<T>(
-            Transform parent)
-            where T : Component, IPoolable
+        public T SpawnUI<T>(Transform parent) where T : Component, IPoolable
         {
-            var instance = await GetUI<T>();
+            var instance = GetUI<T>();
 
             var transform = instance.transform;
             transform.SetParent(parent, false);
@@ -71,10 +65,7 @@ namespace Services
             return instance;
         }
 
-        private async Task<T> Get<T>(
-            Vector3 position,
-            Quaternion rotation)
-            where T : Component, IPoolable
+        private T Get<T>(Vector3 position, Quaternion rotation) where T : Component, IPoolable
         {
             var type = typeof(T);
 
@@ -83,17 +74,14 @@ namespace Services
                 while (queue.Count > 0)
                 {
                     var obj = queue.Dequeue();
-
-                    if (obj != null)
-                        return (T)obj;
+                    if (obj != null) return (T)obj;
                 }
             }
 
-            return await _assetsManager.Instantiate<T>(position, rotation);
+            return _assetsManager.Instantiate<T>(position, rotation);
         }
 
-        private async Task<T> GetUI<T>()
-            where T : Component, IPoolable
+        private T GetUI<T>() where T : Component, IPoolable
         {
             var type = typeof(T);
 
@@ -102,13 +90,11 @@ namespace Services
                 while (queue.Count > 0)
                 {
                     var obj = queue.Dequeue();
-
-                    if (obj != null)
-                        return (T)obj;
+                    if (obj != null) return (T)obj;
                 }
             }
 
-            return await _assetsManager.InstantiateUI<T>(Root);
+            return _assetsManager.Instantiate<T>(Vector3.zero, Quaternion.identity, Root);
         }
 
         public void Despawn(IPoolable poolable)
@@ -133,37 +119,16 @@ namespace Services
             queue.Enqueue(poolable);
         }
 
-        public void Destroy(IPoolable poolable)
-        {
-            if (poolable == null)
-                return;
-
-            _assetsManager.Release(poolable.GameObject);
-        }
-        
-        public void Register(IPoolable poolable)
-        {
-            var type = poolable.GetType();
-
-            if (!_registered.TryGetValue(type, out var set))
-            {
-                set = new HashSet<IPoolable>();
-                _registered[type] = set;
-            }
-
-            set.Add(poolable);
-        }
-
         public void Clear()
         {
             foreach (var queue in _pool.Values)
             {
                 while (queue.Count > 0)
                 {
-                    var obj = queue.Dequeue();
+                    var poolable = queue.Dequeue();
 
-                    if (obj != null)
-                        _assetsManager.Release(obj.GameObject);
+                    if (poolable != null)
+                        UnityEngine.Object.Destroy(poolable.GameObject);
                 }
             }
 
@@ -184,6 +149,8 @@ namespace Services
                 UnityEngine.Object.Destroy(_root.gameObject);
                 _root = null;
             }
+
+            _assetsManager.ReleaseAll();
         }
 
         private Transform GetPoolParent(Type type)

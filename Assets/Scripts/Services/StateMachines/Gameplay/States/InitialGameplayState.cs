@@ -2,6 +2,7 @@ using System;
 using Zenject;
 using Managers;
 using System.Threading.Tasks;
+using Entities;
 using UnityEngine;
 
 namespace Services
@@ -9,6 +10,7 @@ namespace Services
     public class InitialGameplayState : IState<GameplayStates>
     {
         [Inject] private IBoxManager _boxManager;
+        [Inject] private IAssetsManager _assetsManager;
         
         public GameplayStates State => GameplayStates.Initial;
 
@@ -18,6 +20,8 @@ namespace Services
         {
             try
             {
+                await _assetsManager.PreloadAssetAsync<Box>();
+                
                 _boxManager.InitiateAllBoxDatasPerColumns();
                 
                 _boxManager.InitiatePreallocatedBoxes();

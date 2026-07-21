@@ -1,6 +1,8 @@
+using System;
 using Zenject;
 using UnityEngine;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
@@ -10,65 +12,77 @@ namespace Managers
     {
         [Inject] private readonly DiContainer _diContainer;
 
-        public async Task<T> Instantiate<T>(
-            Vector3 position,
-            Quaternion rotation,
-            Transform parent = null)
-            where T : Component
+        private readonly Dictionary<Type, AsyncOperationHandle<GameObject>> _loadedPrefabs = new();
+
+        public async Task PreloadAssetAsync<T>() where T : Component
         {
-            var handle = Addressables.InstantiateAsync(AssetsAddresses.Get<T>(), position, rotation, parent);
+            await GetPrefab<T>();
+        }
+
+        public async Task<GameObject> GetPrefab<T>() where T : Component
+        {
+            var type = typeof(T);
+
+            if (_loadedPrefabs.TryGetValue(type, out var handle))
+            {
+                if (handle.IsValid()) return handle.Result;
+
+                _loadedPrefabs.Remove(type);
+            }
+
+            var address = AssetsAddresses.Get<T>();
+
+            handle = Addressables.LoadAssetAsync<GameObject>(address);
 
             await handle.Task;
 
             if (handle.Status != AsyncOperationStatus.Succeeded)
-            {
-                Debug.LogError($"Failed to instantiate addressable: {AssetsAddresses.Get<T>()}");
-                return null;
-            }
+                throw new Exception($"Failed to load prefab '{address}'.");
 
-            _diContainer.InjectGameObject(handle.Result);
+            _loadedPrefabs[type] = handle;
 
-            return handle.Result.GetComponent<T>();
+            return handle.Result;
         }
 
-        public async Task<T> InstantiateUI<T>(
-            Transform parent)
-            where T : Component
+        public T Instantiate<T>(Vector3 position, Quaternion rotation, Transform parent = null) where T : Component
         {
-            var handle = Addressables.InstantiateAsync(AssetsAddresses.Get<T>(), parent);
+            var type = typeof(T);
 
-            await handle.Task;
+            if (!_loadedPrefabs.TryGetValue(type, out var handle) || !handle.IsValid())
+                throw new InvalidOperationException(
+                    $"Prefab '{type.Name}' is not preloaded.");
 
-            if (handle.Status != AsyncOperationStatus.Succeeded)
-            {
-                Debug.LogError($"Failed to instantiate addressable: {AssetsAddresses.Get<T>()}");
-                return null;
-            }
+            var gameObject = _diContainer.InstantiatePrefab(
+                handle.Result,
+                position,
+                rotation,
+                parent);
 
-            var instance = handle.Result;
-
-            _diContainer.InjectGameObject(instance);
-
-            var rectTransform = instance.GetComponent<RectTransform>();
-            
-            if (rectTransform != null)
-            {
-                rectTransform.localPosition = Vector3.zero;
-                rectTransform.localRotation = Quaternion.identity;
-                rectTransform.localScale = Vector3.one;
-            }
-
-            return instance.GetComponent<T>();
+            return gameObject.GetComponent<T>();
         }
 
-        public void Release(GameObject instance)
+        public void Release<T>() where T : Component
         {
-            if (instance != null)
-            {
-                Addressables.ReleaseInstance(instance);
-            }
+            var type = typeof(T);
+
+            if (!_loadedPrefabs.TryGetValue(type, out var handle))
+                return;
+
+            if (handle.IsValid())
+                Addressables.Release(handle);
+
+            _loadedPrefabs.Remove(type);
         }
 
-        public void Dispose() => Addressables.ClearResourceLocators();
+        public void ReleaseAll()
+        {
+            foreach (var handle in _loadedPrefabs.Values)
+            {
+                if (handle.IsValid())
+                    Addressables.Release(handle);
+            }
+
+            _loadedPrefabs.Clear();
+        }
     }
 }

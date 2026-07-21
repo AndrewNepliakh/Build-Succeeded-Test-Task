@@ -88,8 +88,6 @@ namespace Managers
                         box.OnDestroy += ShiftColumn;
 
                         _nextBoxDataIndexPerColumn[column]++;
-
-                        _poolService.Register(box);
                     }
                     else
                     {
@@ -126,8 +124,6 @@ namespace Managers
                         box.OnDestroy += ShiftColumn;
 
                         _nextBoxDataIndexPerColumn[column]++;
-
-                        _poolService.Register(box);
                     }
                 }
             }

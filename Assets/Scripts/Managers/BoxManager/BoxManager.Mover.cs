@@ -53,7 +53,7 @@ namespace Managers
             var boxData = _boxDatasPerColumns[dataColumn][boxDataIndex];
             _nextBoxDataIndexPerColumn[dataColumn]++;
 
-            var box = await _poolService.Spawn<Box>(
+            var box = _poolService.Spawn<Box>(
                 new Vector3(_currentColumn, 0f, -5f),
                 Quaternion.identity,
                 _parentColumn);
