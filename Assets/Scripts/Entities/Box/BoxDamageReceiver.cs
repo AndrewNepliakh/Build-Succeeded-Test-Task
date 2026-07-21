@@ -1,7 +1,8 @@
-using Zenject;
 using Managers;
 using Services;
 using UnityEngine;
+using Zenject;
+using IPoolable = Services.IPoolable;
 
 namespace Entities
 {
@@ -11,14 +12,31 @@ namespace Entities
 
         [SerializeField] private Box _box;
 
+        private bool _canReceiveDamage;
+
+        private bool isWasTrue;
+
+        public void SetCanReceiveDamage(bool value)
+        {
+            _canReceiveDamage = value;
+        }
+
         public void OnTap()
         {
+            if (!_canReceiveDamage)
+                return;
+
             ReceiveDamage();
         }
 
         public void ReceiveDamage()
         {
             _poolService.Despawn(_box);
+        }
+        
+        private void OnDisable()
+        {
+            _canReceiveDamage = false;
         }
     }
 }

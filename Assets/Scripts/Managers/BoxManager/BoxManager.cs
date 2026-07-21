@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Managers
 {
-    public class BoxManager : IBoxManager
+    public partial class BoxManager : IBoxManager
     {
         [Inject] private ILevelManager _levelManager;
         [Inject] private IPoolService _poolService;
@@ -60,21 +60,34 @@ namespace Managers
             var boxesByArrayIndex = _preallocatedBoxes.ToDictionary(
                 box => box.GetComponent<ArrayIndexMarker>().ArrayIndex);
 
-            for (var x = rows - 1; x >= 0; x--)
+            for (var row = rows - 1; row >= 0; row--)
             {
-                for (var y = 0; y < columns; y++)
+                for (var column = 0; column < columns; column++)
                 {
-                    var arrayIndex = new Vector2Int(y, x);
+                    var arrayIndex = new Vector2Int(column, row);
 
                     if (boxesByArrayIndex.TryGetValue(arrayIndex, out var box))
                     {
                         _diContainer.InjectGameObject(box.gameObject);
 
-                        var boxDataIndex = _nextBoxDataIndexPerColumn[y];
+                        var boxDataIndex = _nextBoxDataIndexPerColumn[column];
+                        
+                        var worldX = columns - 1 - column;
 
-                        box.Initiate(_boxDatasPerColumns[y][boxDataIndex]);
+                        var args = new BoxArguments
+                        {
+                            BoxData = _boxDatasPerColumns[column][boxDataIndex],
+                            ParentColumn = _columnParents[worldX]
+                        };
 
-                        _nextBoxDataIndexPerColumn[y]++;
+                        box.Initiate(args);
+                        
+                        var damageReceiver = box.GetComponentInChildren<BoxDamageReceiver>();
+                        damageReceiver.SetCanReceiveDamage(row == rows - 1);
+                        
+                        box.OnDestroy += ShiftColumn;
+
+                        _nextBoxDataIndexPerColumn[column]++;
 
                         _poolService.Register(box);
                     }
@@ -112,8 +125,16 @@ namespace Managers
                         position,
                         Quaternion.identity,
                         _columnParents[worldX]);
+                    
+                    var args = new BoxArguments
+                    {
+                        BoxData = boxData,
+                        ParentColumn = _columnParents[worldX]
+                    };
 
-                    box.Initiate(boxData);
+                    box.Initiate(args);
+                    
+                    box.OnDestroy += ShiftColumn;
                 }
             }
         }
