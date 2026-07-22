@@ -27,6 +27,7 @@ namespace Services
                 
                 _boxManager.CreateBufferBoxes();
                 
+                await _assetsManager.PreloadAssetAsync<Tank>();
                 await _assetsManager.PreloadAssetAsync<BoxVisual>();
             }
             catch (Exception e)

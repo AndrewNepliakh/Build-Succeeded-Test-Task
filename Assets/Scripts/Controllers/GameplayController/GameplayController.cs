@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Zenject;
 using Managers;
 using Services;
@@ -8,14 +9,15 @@ namespace Controllers
 {
     public class GameplayController : MonoBehaviour
     {
-        public const int BufferPreallocatedBoxesRows = 5;
-        
         [Inject] private GameplayStateMachine<GameplayStates> _gameplayStateMachine;
         [Inject] private IBoxManager _boxManager;
-
-
+        [Inject] private ITankManager _tankManager;
+        
+        
         [SerializeField] private Transform[] _columnParents = new Transform[BoxesGridConfig.Width];
         [SerializeField] private Box[] _preallocatedBoxes = new Box[BoxesGridConfig.Width * BoxesGridConfig.Height];
+        
+        [SerializeField] private List<TanksSpawnSettings> _tanksSpawnSettings = new ();
 
         [Inject]
         private void Initiate(

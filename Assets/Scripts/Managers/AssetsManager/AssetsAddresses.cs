@@ -9,6 +9,7 @@ namespace Managers
         private static readonly Dictionary<Type, string> Addresses = new()
         {
             { typeof(Box), "Box" },
+            { typeof(Tank), "Tank" },
             { typeof(BoxVisual), "BoxVisual" },
         };
 
