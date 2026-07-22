@@ -2,6 +2,7 @@ using Zenject;
 using Services;
 using Managers;
 using UnityEngine;
+using DG.Tweening;
 using System.Collections.Generic;
 
 namespace Entities
@@ -61,9 +62,25 @@ namespace Entities
             {
                 _currentExtraBoxes--;
                 _boxVisuals[_currentExtraBoxes].gameObject.SetActive(false);
+                
+                transform.DOKill();
+                
+                var position = transform.position;
+                position.y += 1f;
+                transform.position = position;
+                
+                transform.DOMoveY(0f, 0.1f)
+                    .SetEase(Ease.OutQuad)
+                    .OnComplete(() =>
+                    {
+                        var finalPosition = transform.position;
+                        finalPosition.y = 0f;
+                        transform.position = finalPosition;
+                    });
+                
                 return;
             }
-
+            
             _poolService.Despawn(_box);
         }
 
