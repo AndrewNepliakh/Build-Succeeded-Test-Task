@@ -2,13 +2,13 @@
 
 using System;
 using Entities;
-using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace Managers
 {
-    public partial class BoxesGridConfig
+    public partial class TanksGridConfig
     {
         private bool _statisticsFoldout = true;
 
@@ -30,7 +30,7 @@ namespace Managers
             }
         }
 
-        protected static BoxData DrawGrid(Rect rect, BoxData value)
+        protected static TankData DrawGrid(Rect rect, TankData value)
         {
             Color background = value.Color switch
             {
@@ -46,7 +46,7 @@ namespace Managers
 
             Handles.DrawSolidRectangleWithOutline(rect, Color.clear, Color.black);
 
-            if (value.StackHeight > 0)
+            if (value.ShootsCount > 0)
             {
                 GUIStyle style = new(EditorStyles.boldLabel)
                 {
@@ -56,7 +56,7 @@ namespace Managers
 
                 style.normal.textColor = Color.black;
 
-                EditorGUI.LabelField(rect, value.StackHeight.ToString(), style);
+                EditorGUI.LabelField(rect, value.ShootsCount.ToString(), style);
             }
 
             Event e = Event.current;
@@ -68,7 +68,7 @@ namespace Managers
                     if (value.Color == BoxColor.None)
                     {
                         value.Color = BoxColor.Red;
-                        value.StackHeight = 1;
+                        value.ShootsCount = 1;
                     }
                     else
                     {
@@ -86,18 +86,18 @@ namespace Managers
                     GUI.changed = true;
                     e.Use();
                 }
-
+                
                 if (e.button == 1)
                 {
                     if (value.Color != BoxColor.None)
                     {
                         if (e.shift)
                         {
-                            value.StackHeight = Mathf.Max(1, value.StackHeight - 1);
+                            value.ShootsCount = Mathf.Max(1, value.ShootsCount - 1);
                         }
                         else
                         {
-                            value.StackHeight++;
+                            value.ShootsCount++;
                         }
 
                         GUI.changed = true;
@@ -116,7 +116,7 @@ namespace Managers
         {
             _statisticsFoldout = EditorGUILayout.Foldout(
                 _statisticsFoldout,
-                "Boxes Count",
+                "Shoots Count",
                 true);
 
             if (!_statisticsFoldout)
@@ -128,12 +128,12 @@ namespace Managers
             {
                 for (int y = 0; y < Height; y++)
                 {
-                    BoxData data = Grid[x, y];
+                    TankData data = Grid[x, y];
 
                     if (data.Color == BoxColor.None)
                         continue;
 
-                    counts[(int)data.Color] += Mathf.Max(1, data.StackHeight);
+                    counts[(int)data.Color] += Mathf.Max(1, data.ShootsCount);
                 }
             }
 

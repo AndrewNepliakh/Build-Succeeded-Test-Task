@@ -9,6 +9,8 @@ namespace Managers
     public class LevelConfigData
     {
         [OdinSerialize] private List<BoxesBlockConfig> _boxesBlockConfigs = new();
+        
         public List<BoxesBlockConfig> BoxesBlockConfigs => _boxesBlockConfigs;
+
     }
 }

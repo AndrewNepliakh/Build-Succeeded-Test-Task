@@ -1,4 +1,4 @@
-namespace Managers
+namespace Entities
 {
     public enum BoxColor
     {

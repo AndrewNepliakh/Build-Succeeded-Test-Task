@@ -1,11 +1,11 @@
 using System;
 
-namespace Managers
+namespace Entities
 {
     [Serializable]
-    public struct BoxData
+    public struct TankData
     {
         public BoxColor Color;
-        public int StackHeight;
+        public int ShootsCount;
     }
 }

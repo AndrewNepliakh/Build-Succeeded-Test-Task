@@ -8,7 +8,9 @@ namespace Managers
     public partial class BoxesBlockConfig
     {
         [OdinSerialize] private BoxesGridConfig _boxesGridConfig = new();
+        [OdinSerialize] private TanksGridConfig _tanksGridConfig = new();
 
         public BoxesGridConfig BoxesGridConfig => _boxesGridConfig;
+        public TanksGridConfig TanksGridConfig => _tanksGridConfig;
     }
 }

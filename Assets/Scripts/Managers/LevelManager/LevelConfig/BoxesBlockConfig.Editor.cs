@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 
+using Entities;
 using UnityEngine;
 using UnityEditor;
 using Sirenix.OdinInspector;

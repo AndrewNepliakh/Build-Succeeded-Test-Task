@@ -1,5 +1,5 @@
-using System;
 using UI;
+using System;
 using Zenject;
 using Managers;
 using Services;
@@ -15,6 +15,7 @@ namespace Infrastructure
             Container.Bind<IUIManager>().To<UIManager>().AsSingle().NonLazy();
             Container.Bind<IBoxManager>().To<BoxManager>().AsSingle().NonLazy();
             Container.Bind<ISaveManager>().To<SaveManager>().AsSingle().NonLazy();
+            Container.Bind<ITankManager>().To<TankManager>().AsSingle().NonLazy();
             Container.Bind<ILevelManager>().To<LevelManager>().AsSingle().NonLazy();
             Container.Bind<IAssetsManager>().To<AssetsManager>().AsSingle().NonLazy();
 
