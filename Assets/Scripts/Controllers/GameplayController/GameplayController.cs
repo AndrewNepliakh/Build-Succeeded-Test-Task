@@ -15,7 +15,7 @@ namespace Controllers
 
 
         [SerializeField] private Transform[] _columnParents = new Transform[BoxesGridConfig.Width];
-        [SerializeField] private Box[] _preallocatedBoxes = new Box[BoxesGridConfig.Width * BoxesGridConfig.Height + BufferPreallocatedBoxesRows];
+        [SerializeField] private Box[] _preallocatedBoxes = new Box[BoxesGridConfig.Width * BoxesGridConfig.Height];
 
         [Inject]
         private void Initiate(

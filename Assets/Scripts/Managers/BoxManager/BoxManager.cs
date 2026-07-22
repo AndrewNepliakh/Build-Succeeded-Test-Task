@@ -3,7 +3,6 @@ using Entities;
 using Services;
 using System.Linq;
 using UnityEngine;
-using Controllers;
 using System.Collections.Generic;
 
 namespace Managers
@@ -18,7 +17,7 @@ namespace Managers
         private Transform[] _columnParents;
         private Box[] _preallocatedBoxes;
 
-        private readonly Dictionary<int, List<BoxData>> _boxDatasPerColumns = new ();
+        private readonly Dictionary<int, List<BoxData>> _boxDatasPerColumns = new();
         private readonly Dictionary<int, int> _nextBoxDataIndexPerColumn = new();
 
         public void Initiate(Transform[] columnParents, Box[] preallocatedBoxes)
@@ -58,20 +57,21 @@ namespace Managers
             var columns = BoxesGridConfig.Width;
 
             var boxesByArrayIndex = _preallocatedBoxes.ToDictionary(
-                box => box.GetComponent<ArrayIndexMarker>().ArrayIndex);
+                box =>
+                {
+                    var index = box.GetComponent<ArrayIndexAttribute>();
+                    return (index.X, index.Z);
+                });
 
             for (var row = rows - 1; row >= 0; row--)
             {
                 for (var column = 0; column < columns; column++)
                 {
-                    var arrayIndex = new Vector2Int(column, row);
-
-                    if (boxesByArrayIndex.TryGetValue(arrayIndex, out var box))
+                    if (boxesByArrayIndex.TryGetValue((column, row), out var box))
                     {
                         _diContainer.InjectGameObject(box.gameObject);
 
                         var boxDataIndex = _nextBoxDataIndexPerColumn[column];
-                        
                         var worldX = columns - 1 - column;
 
                         var args = new BoxArguments
@@ -81,50 +81,58 @@ namespace Managers
                         };
 
                         box.Initiate(args);
-                        
-                        var damageReceiver = box.GetComponentInChildren<BoxDamageReceiver>();
-                        damageReceiver.SetCanReceiveDamage(row == rows - 1);
-                        
-                        box.OnDestroy += ShiftColumn;
+
+                        var damageReceiver = box.GetComponentInChildren<BoxHitReceiver>();
+                        damageReceiver.SetCanReceiveHit(row == rows - 1);
+
+                        box.OnDespawnEvent += ShiftColumn;
 
                         _nextBoxDataIndexPerColumn[column]++;
                     }
                     else
                     {
-                        Debug.LogError($"Box with ArrayIndex {arrayIndex} was not found.");
+                        Debug.LogError($"Box with ArrayIndex ({column}, {row}) was not found.");
                     }
                 }
             }
-            
-            for (var row = -GameplayController.BufferPreallocatedBoxesRows; row < 0; row++)
+        }
+
+        public void CreateBufferBoxes()
+        {
+            const int bufferRows = 5;
+            var columns = BoxesGridConfig.Width;
+
+            for (var row = 0; row < bufferRows; row++)
             {
                 for (var column = 0; column < columns; column++)
                 {
-                    var arrayIndex = new Vector2Int(column, row);
+                    var boxDataIndex = _nextBoxDataIndexPerColumn[column];
 
-                    if (boxesByArrayIndex.TryGetValue(arrayIndex, out var box))
+                    if (boxDataIndex >= _boxDatasPerColumns[column].Count)
+                        continue;
+
+                    var boxData = _boxDatasPerColumns[column][boxDataIndex];
+                    _nextBoxDataIndexPerColumn[column]++;
+
+                    var worldX = columns - 1 - column;
+                    var worldZ = -(row + 1);
+
+                    var position = new Vector3(worldX, 0, worldZ);
+
+                    var box = _poolService.Spawn<Box>(
+                        position,
+                        Quaternion.identity,
+                        _columnParents[worldX]);
+
+                    var args = new BoxArguments
                     {
-                        _diContainer.InjectGameObject(box.gameObject);
+                        BoxData = boxData,
+                        ParentColumn = _columnParents[worldX]
+                    };
 
-                        var boxDataIndex = _nextBoxDataIndexPerColumn[column];
+                    box.Initiate(args);
 
-                        var worldX = columns - 1 - column;
-
-                        var args = new BoxArguments
-                        {
-                            BoxData = _boxDatasPerColumns[column][boxDataIndex],
-                            ParentColumn = _columnParents[worldX]
-                        };
-
-                        box.Initiate(args);
-
-                        var damageReceiver = box.GetComponentInChildren<BoxDamageReceiver>();
-                        damageReceiver.SetCanReceiveDamage(false);
-
-                        box.OnDestroy += ShiftColumn;
-
-                        _nextBoxDataIndexPerColumn[column]++;
-                    }
+                    box.OnDespawnEvent += ShiftColumn;
                 }
             }
         }

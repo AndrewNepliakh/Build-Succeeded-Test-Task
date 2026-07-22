@@ -1,3 +1,4 @@
+using System;
 using Entities;
 using UnityEngine;
 using DG.Tweening;
@@ -9,27 +10,38 @@ namespace Managers
         private Transform _parentColumn;
         
         private int _currentColumn;
+
+        public event Action<Transform> OnColumnShifted;
         
         private void ShiftColumn(Box box, Transform parentColumn)
         {
             _parentColumn = parentColumn;
             
             _parentColumn = parentColumn;
-            _currentColumn = System.Array.IndexOf(_columnParents, parentColumn);
+            _currentColumn = Array.IndexOf(_columnParents, parentColumn);
             
-            box.OnDestroy -= ShiftColumn;
+            box.OnDespawnEvent -= ShiftColumn;
 
             parentColumn
                 .DOMoveZ(parentColumn.position.z + 1f, 0.1f)
                 .SetDelay(0.0625f)
                 .SetEase(Ease.OutQuad)
-                .OnComplete(() => OnCompleteShift());
+                .OnComplete(() =>
+                {
+                    var position = parentColumn.position;
+                    position.z = Mathf.Round(position.z);
+                    parentColumn.position = position;
+
+                    OnCompleteShift();
+                });
         }
 
         private void OnCompleteShift()
         {
             ActivateDamageReceiveFrontLineBoxes();
             AddNextBox();
+            
+            OnColumnShifted?.Invoke(_parentColumn);
         }
 
         private void ActivateDamageReceiveFrontLineBoxes()
@@ -37,11 +49,11 @@ namespace Managers
             var frontBox = _parentColumn.GetChild(0);
 
             frontBox
-                .GetComponentInChildren<BoxDamageReceiver>()
-                .SetCanReceiveDamage(true);
+                .GetComponentInChildren<BoxHitReceiver>()
+                .SetCanReceiveHit(true);
         }
 
-        private async void AddNextBox()
+        private void AddNextBox()
         {
             var dataColumn = BoxesGridConfig.Width - 1 - _currentColumn;
 
@@ -64,7 +76,7 @@ namespace Managers
                 ParentColumn = _parentColumn
             });
 
-            box.OnDestroy += ShiftColumn;
+            box.OnDespawnEvent += ShiftColumn;
         }
     }
 }

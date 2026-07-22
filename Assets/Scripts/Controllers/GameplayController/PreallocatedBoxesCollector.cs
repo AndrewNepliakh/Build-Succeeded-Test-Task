@@ -10,12 +10,12 @@ namespace Controllers
     {
         [SerializeField] private GameplayController _gameplayController;
         
-        private Box[] _preallocatedBoxes = new Box[150];
+        private Box[] _preallocatedBoxes = new Box[100];
 
         [ContextMenu("Collect Preallocated Boxes")]
         private void CollectPreallocatedBoxes()
         {
-            const int MinRow = -5;
+            const int MinRow = 0;
             const int MaxRow = 9;
 
             int index = 0;

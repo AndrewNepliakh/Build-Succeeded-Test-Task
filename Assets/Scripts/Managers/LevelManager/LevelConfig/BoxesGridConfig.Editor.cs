@@ -28,10 +28,11 @@ namespace Managers
             {
                 GUIStyle style = new(EditorStyles.boldLabel)
                 {
-                    alignment = TextAnchor.MiddleCenter
+                    alignment = TextAnchor.MiddleCenter,
+                    fontSize = EditorStyles.boldLabel.fontSize * 2
                 };
 
-                style.normal.textColor = Color.white;
+                style.normal.textColor = Color.black;
 
                 EditorGUI.LabelField(rect, value.StackHeight.ToString(), style);
             }

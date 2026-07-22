@@ -1,9 +1,9 @@
 using System;
 using Zenject;
 using Managers;
-using System.Threading.Tasks;
 using Entities;
 using UnityEngine;
+using System.Threading.Tasks;
 
 namespace Services
 {
@@ -20,11 +20,14 @@ namespace Services
         {
             try
             {
+                _boxManager.InitiateAllBoxDatasPerColumns();
+                _boxManager.InitiatePreallocatedBoxes();
+                
                 await _assetsManager.PreloadAssetAsync<Box>();
                 
-                _boxManager.InitiateAllBoxDatasPerColumns();
+                _boxManager.CreateBufferBoxes();
                 
-                _boxManager.InitiatePreallocatedBoxes();
+                await _assetsManager.PreloadAssetAsync<BoxVisual>();
             }
             catch (Exception e)
             {
