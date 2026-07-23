@@ -21,22 +21,22 @@ public class ColumnsTanksCollector : MonoBehaviour
             settings.ColumnsCount =
                 (TanksGridConfig.ColumnsCount)container.childCount;
 
-            settings._spawnColumns = new List<TanksSpawnColumn>();
+            settings.SpawnColumns = new List<TanksSpawnColumn>();
 
             foreach (Transform columnParent in container)
             {
                 var spawnColumn = new TanksSpawnColumn
                 {
-                    _columnParent = columnParent,
-                    _spawnPoints = new List<Transform>()
+                    ColumnParent = columnParent,
+                    SpawnPoints = new List<Transform>()
                 };
 
                 for (var i = 0; i < columnParent.childCount; i++)
                 {
-                    spawnColumn._spawnPoints.Add(columnParent.GetChild(i));
+                    spawnColumn.SpawnPoints.Add(columnParent.GetChild(i));
                 }
 
-                settings._spawnColumns.Add(spawnColumn);
+                settings.SpawnColumns.Add(spawnColumn);
             }
 
             result.Add(settings);

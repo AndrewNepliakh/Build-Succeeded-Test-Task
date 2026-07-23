@@ -13,7 +13,7 @@ namespace Entities
         
         public TankData TankData => _tankData;
         public GameObject GameObject => gameObject;
-        public Object ParentColumn => _parentColumn;
+        public Transform ParentColumn => _parentColumn;
         
         public event Action<Tank, Transform> OnDespawnEvent; 
         

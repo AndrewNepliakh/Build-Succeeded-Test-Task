@@ -19,6 +19,8 @@ namespace Controllers
         [Space(20)]
         [SerializeField] private List<TanksSpawnSettings> _tanksSpawnSettings = new ();
         [SerializeField] private Tank[] _preallocatedTanks = new Tank[TanksGridConfig.Height * TanksGridConfig.MaxWidth];
+        [Space(20)] 
+        [SerializeField] private List<TankPlacement> _tankPlacements = new ();
         
         [Inject]
         private void Initiate(
@@ -31,7 +33,7 @@ namespace Controllers
             _gameplayStateMachine.AddState(loseGameplayState);
 
             _boxManager.Initiate(_columnParents, _preallocatedBoxes);
-            _tankManager.Initiate(_tanksSpawnSettings, _preallocatedTanks);
+            _tankManager.Initiate(_tanksSpawnSettings, _tankPlacements, _preallocatedTanks);
 
             _gameplayStateMachine.ChangeState(GameplayStates.Initial);
         }

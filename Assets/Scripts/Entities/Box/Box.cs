@@ -13,9 +13,9 @@ namespace Entities
         
         public BoxData BoxData => _boxData;
         public GameObject GameObject => gameObject;
-        public Object ParentColumn => _parentColumn;
+        public Transform ParentColumn => _parentColumn;
         
-        public event Action<Box, Transform> OnDespawnEvent; 
+        public event Action<Box> OnDespawnEvent; 
         
         public void Initiate(BoxArguments boxArguments)
         {
@@ -32,7 +32,7 @@ namespace Entities
 
         public void OnDespawn()
         {
-            OnDespawnEvent?.Invoke(this, _parentColumn);
+            OnDespawnEvent?.Invoke(this);
         }
     }
 

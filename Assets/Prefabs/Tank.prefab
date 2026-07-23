@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7412090959096977719}
   - component: {fileID: 7153383672366933500}
   - component: {fileID: 8363925691145514377}
+  - component: {fileID: 6007438827129532880}
+  - component: {fileID: 5228211217864641081}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -84,6 +86,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Entities.TankIndicatorAttribute
   _tank: {fileID: 7412090959096977719}
   _indicatorText: {fileID: 7325067364037159948}
+--- !u!114 &6007438827129532880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640602411252136096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ff71d105604aa69636dc5f228937ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.TankPlacementAttribute
+  _tank: {fileID: 7412090959096977719}
+  _tankTapReceiver: {fileID: 2636496295096813343}
+--- !u!114 &5228211217864641081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640602411252136096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b270a415eef7491aae3806ad9c7854be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.TankMoveAttribute
 --- !u!1 &4474496736112473762
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +396,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f10ae16ae8f734c2daefb986970bd3b8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2636496295096813343}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f10ae16ae8f734c2daefb986970bd3b8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5564575073217600585}
   m_SourcePrefab: {fileID: 100100000, guid: f10ae16ae8f734c2daefb986970bd3b8, type: 3}
 --- !u!23 &972496578795229908 stripped
 MeshRenderer:
@@ -380,6 +414,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f10ae16ae8f734c2daefb986970bd3b8, type: 3}
   m_PrefabInstance: {fileID: 3638701689178817563}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4521097503433767242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f10ae16ae8f734c2daefb986970bd3b8, type: 3}
+  m_PrefabInstance: {fileID: 3638701689178817563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2636496295096813343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4521097503433767242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b677576c8249fb809bc70afec2d52e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.TankTapReceiver
+--- !u!65 &5564575073217600585
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4521097503433767242}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 1.3, z: 1.75}
+  m_Center: {x: -0, y: 0.65, z: 0}
 --- !u!23 &6469180285833455114 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -1461304994638716399, guid: f10ae16ae8f734c2daefb986970bd3b8, type: 3}

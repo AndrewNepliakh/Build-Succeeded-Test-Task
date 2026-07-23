@@ -31,6 +31,9 @@ MonoBehaviour:
     - Name: 
       Entry: 7
       Data: 1|Managers.LevelConfigData, Assembly-CSharp
+    - Name: _tankColumns
+      Entry: 3
+      Data: 0
     - Name: _boxesBlockConfigs
       Entry: 7
       Data: 2|System.Collections.Generic.List`1[[Managers.BoxesBlockConfig, Assembly-CSharp]],
@@ -58,10 +61,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -70,10 +73,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -82,10 +85,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -94,10 +97,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -106,10 +109,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -118,10 +121,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -130,10 +133,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -142,10 +145,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -154,10 +157,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -166,10 +169,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -178,10 +181,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -190,10 +193,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -202,10 +205,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -214,10 +217,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -226,10 +229,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -238,10 +241,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -250,10 +253,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -262,10 +265,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -274,10 +277,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -286,10 +289,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -298,10 +301,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -310,10 +313,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -322,10 +325,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -334,10 +337,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -346,10 +349,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -358,10 +361,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -370,10 +373,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -382,10 +385,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -394,10 +397,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -406,10 +409,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -418,10 +421,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -430,10 +433,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -442,10 +445,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -454,10 +457,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -466,10 +469,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -478,10 +481,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -490,10 +493,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -502,10 +505,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -514,10 +517,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -526,10 +529,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -538,10 +541,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -550,10 +553,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -562,10 +565,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -574,10 +577,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -586,10 +589,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -598,10 +601,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -610,10 +613,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -622,10 +625,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -634,10 +637,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -646,10 +649,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -658,10 +661,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -670,10 +673,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -682,10 +685,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -694,10 +697,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -706,10 +709,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -718,10 +721,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -730,10 +733,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -742,10 +745,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -754,10 +757,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -766,10 +769,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -778,10 +781,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -790,10 +793,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -802,10 +805,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -814,10 +817,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -826,10 +829,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -838,10 +841,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -850,10 +853,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -862,10 +865,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -874,10 +877,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -886,10 +889,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -898,10 +901,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -910,10 +913,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -922,10 +925,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -934,10 +937,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -946,10 +949,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -958,10 +961,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -970,10 +973,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -982,10 +985,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -994,10 +997,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1006,10 +1009,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1018,10 +1021,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1030,10 +1033,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1042,10 +1045,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1054,10 +1057,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1066,10 +1069,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1078,10 +1081,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1090,10 +1093,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1102,10 +1105,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1114,10 +1117,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1126,10 +1129,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1138,10 +1141,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1150,10 +1153,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1162,10 +1165,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1174,10 +1177,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1186,10 +1189,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1198,10 +1201,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1210,10 +1213,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1222,10 +1225,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1234,10 +1237,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1246,10 +1249,10 @@ MonoBehaviour:
       Data: Entities.BoxData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: StackHeight
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1263,7 +1266,97 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: _tanksGridConfig
-      Entry: 6
+      Entry: 7
+      Data: 6|Managers.TanksGridConfig, Assembly-CSharp
+    - Name: Grid
+      Entry: 7
+      Data: 7|Entities.TankData[,], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: ranks
+      Entry: 1
+      Data: 2|3
+    - Name: 
+      Entry: 7
+      Data: Entities.TankData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: ShootsCount
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Entities.TankData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: ShootsCount
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Entities.TankData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 2
+    - Name: ShootsCount
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Entities.TankData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 2
+    - Name: ShootsCount
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Entities.TankData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 1
+    - Name: ShootsCount
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Entities.TankData, Assembly-CSharp
+    - Name: Color
+      Entry: 3
+      Data: 2
+    - Name: ShootsCount
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8

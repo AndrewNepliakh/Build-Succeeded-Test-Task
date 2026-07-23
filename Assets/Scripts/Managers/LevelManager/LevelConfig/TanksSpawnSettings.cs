@@ -8,13 +8,13 @@ namespace Managers
     public class TanksSpawnSettings
     {
         public TanksGridConfig.ColumnsCount ColumnsCount;
-        public List<TanksSpawnColumn> _spawnColumns = new ();
+        public List<TanksSpawnColumn> SpawnColumns = new ();
     }
 
     [Serializable]
     public class TanksSpawnColumn
     {
-        public Transform _columnParent;
-        public List<Transform> _spawnPoints = new ();
+        public Transform ColumnParent;
+        public List<Transform> SpawnPoints = new ();
     }
 }

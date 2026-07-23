@@ -14,15 +14,20 @@ namespace Managers
         [Inject] private DiContainer _diContainer;
 
         private List<TanksSpawnSettings> _tanksSpawnSettings;
+        private List<TankPlacement> _tankPlacements;
         private Tank[] _preallocatedTanks;
 
         private readonly Dictionary<int, List<TankData>> _tankDatasPerColumns = new();
         private readonly Dictionary<int, int> _nextTankDataIndexPerColumn = new();
 
-        public void Initiate(List<TanksSpawnSettings> tanksSpawnSettings, Tank[] preallocatedTanks)
+        public void Initiate(
+            List<TanksSpawnSettings> tanksSpawnSettings, 
+            List<TankPlacement> tankPlacements,
+            Tank[] preallocatedTanks)
         {
             _tanksSpawnSettings = tanksSpawnSettings;
             _preallocatedTanks = preallocatedTanks;
+            _tankPlacements = tankPlacements;
         }
 
         public void InitiateAllTankDatasPerColumns()
@@ -44,10 +49,15 @@ namespace Managers
                         _tankDatasPerColumns[column] = new List<TankData>();
                         _nextTankDataIndexPerColumn[column] = 0;
                     }
-
-                    for (var row = TanksGridConfig.Height - 1; row >= 0; row--)
+                    
+                    for (var row = 0; row < TanksGridConfig.Height; row++)
                     {
-                        _tankDatasPerColumns[column].Add(grid.Grid[column, row]);
+                        var tankData = grid.Grid[column, row];
+
+                        if (tankData.Color == BoxColor.None)
+                            continue;
+
+                        _tankDatasPerColumns[column].Add(tankData);
                     }
                 }
             }
@@ -71,7 +81,7 @@ namespace Managers
 
             for (var column = 0; column < width; column++)
             {
-                var spawnColumn = spawnSettings._spawnColumns[column];
+                var spawnColumn = spawnSettings.SpawnColumns[column];
 
                 for (var row = 0; row < TanksGridConfig.Height; row++)
                 {
@@ -91,10 +101,10 @@ namespace Managers
 
                     var tank = _preallocatedTanks[tankIndex++];
                     _diContainer.InjectGameObject(tank.gameObject);
+                    
+                    var spawnPoint = spawnColumn.SpawnPoints[row];
 
-                    var spawnPoint = spawnColumn._spawnPoints[TanksGridConfig.Height - 1 - row];
-
-                    tank.transform.SetParent(spawnColumn._columnParent, false);
+                    tank.transform.SetParent(spawnColumn.ColumnParent, false);
                     tank.transform.SetPositionAndRotation(
                         spawnPoint.position,
                         spawnPoint.rotation);
@@ -102,12 +112,13 @@ namespace Managers
                     tank.Initiate(new TankArguments
                     {
                         TankData = tankData,
-                        ParentColumn = spawnColumn._columnParent
+                        ParentColumn = spawnColumn.ColumnParent
                     });
+                    
+                    var tapReceiver = tank.GetComponentInChildren<TankTapReceiver>();
+                    tapReceiver.SetCanReceiveTap(true);
 
                     tank.gameObject.SetActive(true);
-
-                    tank.OnDespawnEvent += ShiftColumn;
                 }
             }
         }

@@ -4,32 +4,32 @@ using UnityEngine;
 
 namespace Entities
 {
-    public class BoxHitReceiver : MonoBehaviour, IHitReceiver, ITappable
+    public class TankTapReceiver : MonoBehaviour, IHitReceiver, ITappable
     {
-        private bool _canReceiveHit;
+        private bool _canReceiveTap;
 
-        public event Action OnHit;
+        public event Action OnTapEvent;
 
         public void SetCanReceiveTap(bool value)
         {
-            _canReceiveHit = value;
+            _canReceiveTap = value;
         }
 
         public void OnTap()
         {
-            if (!_canReceiveHit) return;
+            if (!_canReceiveTap) return;
 
             ReceiveTap();
         }
 
         public void ReceiveTap()
         {
-            OnHit?.Invoke();
+            OnTapEvent?.Invoke();
         }
         
         private void OnDisable()
         {
-            _canReceiveHit = false;
+            _canReceiveTap = false;
         }
     }
 }

@@ -13,24 +13,23 @@ namespace Managers
 
         public event Action<Transform> OnColumnShifted;
         
-        private void ShiftColumn(Box box, Transform parentColumn)
+        private void ShiftColumn(Box box)
         {
-            _parentColumn = parentColumn;
+            _parentColumn = box.ParentColumn;
             
-            _parentColumn = parentColumn;
-            _currentColumn = Array.IndexOf(_columnParents, parentColumn);
+            _currentColumn = Array.IndexOf(_columnParents, _parentColumn);
             
             box.OnDespawnEvent -= ShiftColumn;
 
-            parentColumn
-                .DOMoveZ(parentColumn.position.z + 1f, 0.1f)
+            _parentColumn
+                .DOMoveZ(_parentColumn.position.z + 1f, 0.1f)
                 .SetDelay(0.0625f)
                 .SetEase(Ease.OutQuad)
                 .OnComplete(() =>
                 {
-                    var position = parentColumn.position;
+                    var position = _parentColumn.position;
                     position.z = Mathf.Round(position.z);
-                    parentColumn.position = position;
+                    _parentColumn.position = position;
 
                     OnCompleteShift();
                 });
@@ -50,7 +49,7 @@ namespace Managers
 
             frontBox
                 .GetComponentInChildren<BoxHitReceiver>()
-                .SetCanReceiveHit(true);
+                .SetCanReceiveTap(true);
         }
 
         private void AddNextBox()

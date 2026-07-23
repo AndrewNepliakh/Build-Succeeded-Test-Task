@@ -49,8 +49,6 @@ namespace Entities
         private void RefreshExtraBoxes()
         {
             if (!Mathf.Approximately(transform.position.z, 0f)) return;
-
-            Debug.Log($"$Name: {gameObject.name}, _currentExtraBoxes: {_currentExtraBoxes}, _box.BoxData.StackHeight: {_box.BoxData.StackHeight}");
             
             for (var i = 0; i < _currentExtraBoxes; i++)
                 _boxVisuals[i].gameObject.SetActive(true);

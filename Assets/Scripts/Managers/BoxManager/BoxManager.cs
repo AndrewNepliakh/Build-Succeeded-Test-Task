@@ -85,7 +85,7 @@ namespace Managers
                         box.Initiate(args);
 
                         var damageReceiver = box.GetComponentInChildren<BoxHitReceiver>();
-                        damageReceiver.SetCanReceiveHit(row == rows - 1);
+                        damageReceiver.SetCanReceiveTap(row == rows - 1);
 
                         box.OnDespawnEvent += ShiftColumn;
 
