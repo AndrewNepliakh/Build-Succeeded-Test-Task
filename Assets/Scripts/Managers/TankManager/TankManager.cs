@@ -116,7 +116,7 @@ namespace Managers
                     });
                     
                     var tapReceiver = tank.GetComponentInChildren<TankTapReceiver>();
-                    tapReceiver.SetCanReceiveTap(true);
+                    tapReceiver.SetCanReceiveTap(row == 0);
 
                     tank.gameObject.SetActive(true);
                 }

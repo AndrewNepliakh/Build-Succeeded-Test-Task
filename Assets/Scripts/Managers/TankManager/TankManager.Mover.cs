@@ -44,12 +44,15 @@ namespace Managers
             for (var i = 0; i < tanks.Count; i++)
             {
                 var targetPosition = _currentSpawnColumn.SpawnPoints[i].position;
+                var tankTransform = tanks[i].transform;
 
                 tanks[i]
                     .GetComponent<TankMoveAttribute>()
                     .MoveTo(targetPosition)
                     .OnComplete(() =>
                     {
+                        tankTransform.position = targetPosition;
+
                         completed++;
 
                         if (completed == tanks.Count)
@@ -60,7 +63,37 @@ namespace Managers
 
         private void OnCompleteShift()
         {
+            ActivateTapFrontLineTanks();
             AddNextTank();
+        }
+        
+        private void ActivateTapFrontLineTanks()
+        {
+            var sp0 = _currentSpawnColumn.SpawnPoints[0].position;
+
+            Tank frontTank = null;
+            float bestDistance = float.MaxValue;
+
+            foreach (Transform child in _currentSpawnColumn.ColumnParent)
+            {
+                if (!child.TryGetComponent(out Tank tank))
+                    continue;
+
+                var distance = Vector3.Distance(child.position, sp0);
+
+                if (distance < bestDistance)
+                {
+                    bestDistance = distance;
+                    frontTank = tank;
+                }
+            }
+
+            if (frontTank != null)
+            {
+                frontTank
+                    .GetComponentInChildren<TankTapReceiver>()
+                    .SetCanReceiveTap(true);
+            }
         }
         
         private void AddNextTank()
@@ -90,9 +123,6 @@ namespace Managers
                 TankData = tankData,
                 ParentColumn = _currentSpawnColumn.ColumnParent
             });
-
-            var tapReceiver = tank.GetComponentInChildren<TankTapReceiver>();
-            tapReceiver.SetCanReceiveTap(true);
         }
 
         public void MoveToPlacement(Tank tank)

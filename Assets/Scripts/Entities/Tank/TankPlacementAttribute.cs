@@ -1,7 +1,7 @@
 using Managers;
+using Zenject;
 using Services;
 using UnityEngine;
-using Zenject;
 
 namespace Entities
 {
@@ -22,6 +22,11 @@ namespace Entities
         {
             _poolService.Despawn(_tank);
             _tankManager.MoveToPlacement(_tank);
+        }
+
+        private void OnDisable()
+        {
+            _tankTapReceiver.OnTapEvent -= OnTap;
         }
     }
 }
