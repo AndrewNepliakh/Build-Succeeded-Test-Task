@@ -124,7 +124,7 @@ namespace Managers
 
             int[] counts = new int[Enum.GetValues(typeof(BoxColor)).Length];
 
-            for (int x = 0; x < Width; x++)
+            for (int x = 0; x < Grid.GetLength(0); x++)
             {
                 for (int y = 0; y < Height; y++)
                 {

@@ -1,9 +1,9 @@
-using System.Collections.Generic;
 using Zenject;
 using Managers;
 using Services;
 using Entities;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Controllers
 {
@@ -16,9 +16,10 @@ namespace Controllers
         
         [SerializeField] private Transform[] _columnParents = new Transform[BoxesGridConfig.Width];
         [SerializeField] private Box[] _preallocatedBoxes = new Box[BoxesGridConfig.Width * BoxesGridConfig.Height];
-        
+        [Space(20)]
         [SerializeField] private List<TanksSpawnSettings> _tanksSpawnSettings = new ();
-
+        [SerializeField] private Tank[] _preallocatedTanks = new Tank[TanksGridConfig.Height * TanksGridConfig.MaxWidth];
+        
         [Inject]
         private void Initiate(
             InitialGameplayState initialGameplayState,
@@ -30,6 +31,7 @@ namespace Controllers
             _gameplayStateMachine.AddState(loseGameplayState);
 
             _boxManager.Initiate(_columnParents, _preallocatedBoxes);
+            _tankManager.Initiate(_tanksSpawnSettings, _preallocatedTanks);
 
             _gameplayStateMachine.ChangeState(GameplayStates.Initial);
         }
@@ -37,6 +39,11 @@ namespace Controllers
         public void SetPreallocatedBoxes(Box[] preallocatedBoxes)
         {
             _preallocatedBoxes = preallocatedBoxes;
+        }
+        
+        public void SetTanksSpawnSettings(List<TanksSpawnSettings> tanksSpawnSettings)
+        {
+            _tanksSpawnSettings = tanksSpawnSettings;
         }
     }
 }

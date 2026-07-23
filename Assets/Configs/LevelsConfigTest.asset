@@ -31,6 +31,9 @@ MonoBehaviour:
     - Name: 
       Entry: 7
       Data: 1|Managers.LevelConfigData, Assembly-CSharp
+    - Name: _tankColumns
+      Entry: 3
+      Data: 2
     - Name: _boxesBlockConfigs
       Entry: 7
       Data: 2|System.Collections.Generic.List`1[[Managers.BoxesBlockConfig, Assembly-CSharp]],
@@ -1265,9 +1268,6 @@ MonoBehaviour:
     - Name: _tanksGridConfig
       Entry: 7
       Data: 6|Managers.TanksGridConfig, Assembly-CSharp
-    - Name: _columns
-      Entry: 3
-      Data: 2
     - Name: Grid
       Entry: 7
       Data: 7|Entities.TankData[,], Assembly-CSharp
@@ -2588,9 +2588,6 @@ MonoBehaviour:
     - Name: _tanksGridConfig
       Entry: 7
       Data: 11|Managers.TanksGridConfig, Assembly-CSharp
-    - Name: _columns
-      Entry: 3
-      Data: 2
     - Name: Grid
       Entry: 7
       Data: 12|Entities.TankData[,], Assembly-CSharp

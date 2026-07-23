@@ -31,7 +31,7 @@ namespace Managers
             _boxDatasPerColumns.Clear();
             _nextBoxDataIndexPerColumn.Clear();
 
-            var boxesGridConfigs = _levelManager.GetBoxesGridConfigsOfCurrentLevel();
+            var levelConfig = _levelManager.GetLevelConfigOfCurrentLevel();
 
             for (var column = 0; column < BoxesGridConfig.Width; column++)
             {
@@ -39,13 +39,15 @@ namespace Managers
                 _nextBoxDataIndexPerColumn[column] = 0;
             }
 
-            foreach (var boxesGridConfig in boxesGridConfigs)
+            foreach (var blockConfig in levelConfig.BoxesBlockConfigs)
             {
+                var grid = blockConfig.BoxesGridConfig;
+
                 for (var column = 0; column < BoxesGridConfig.Width; column++)
                 {
                     for (var row = BoxesGridConfig.Height - 1; row >= 0; row--)
                     {
-                        _boxDatasPerColumns[column].Add(boxesGridConfig.Grid[column, row]);
+                        _boxDatasPerColumns[column].Add(grid.Grid[column, row]);
                     }
                 }
             }

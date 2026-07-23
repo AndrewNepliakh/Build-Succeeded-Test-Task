@@ -8,6 +8,7 @@ namespace Managers
     [Serializable]
     public partial class TanksGridConfig
     {
+        public const int MaxWidth = 5;
         public const int Height = 3;
 
         public enum ColumnsCount
@@ -18,36 +19,31 @@ namespace Managers
             Five = 5
         }
 
-        [PropertyOrder(-100)] [LabelText("Columns")] [OdinSerialize]
-        private ColumnsCount _columns = ColumnsCount.Two;
-
-        public int Width => (int)_columns;
-
-        [PropertyOrder(-99)]
-        [Button(ButtonSizes.Large)]
-        private void Create()
-        {
-#if UNITY_EDITOR
-            if (Grid != null &&
-                Grid.Length > 0 &&
-                !UnityEditor.EditorUtility.DisplayDialog(
-                    "Create Grid",
-                    "Current grid will be lost.\n\nCreate a new grid?",
-                    "Create",
-                    "Cancel"))
-            {
-                return;
-            }
-#endif
-
-            Grid = new TankData[Width, Height];
-        }
-
         [OdinSerialize]
         [TableMatrix(
             SquareCells = true,
             ResizableColumns = false,
             DrawElementMethod = nameof(DrawGrid))]
-        public TankData[,] Grid = new TankData[2, Height];
+        public TankData[,] Grid = new TankData[MaxWidth, Height];
+
+        public void Resize(int width)
+        {
+            var newGrid = new TankData[width, Height];
+
+            if (Grid != null)
+            {
+                var copyWidth = Math.Min(width, Grid.GetLength(0));
+
+                for (var x = 0; x < copyWidth; x++)
+                {
+                    for (var y = 0; y < Height; y++)
+                    {
+                        newGrid[x, y] = Grid[x, y];
+                    }
+                }
+            }
+
+            Grid = newGrid;
+        }
     }
 }

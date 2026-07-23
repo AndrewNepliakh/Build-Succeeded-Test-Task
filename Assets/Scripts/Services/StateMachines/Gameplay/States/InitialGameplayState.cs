@@ -10,6 +10,7 @@ namespace Services
     public class InitialGameplayState : IState<GameplayStates>
     {
         [Inject] private IBoxManager _boxManager;
+        [Inject] private ITankManager _tankManager;
         [Inject] private IAssetsManager _assetsManager;
         
         public GameplayStates State => GameplayStates.Initial;
@@ -21,7 +22,10 @@ namespace Services
             try
             {
                 _boxManager.InitiateAllBoxDatasPerColumns();
+                _tankManager.InitiateAllTankDatasPerColumns();
+                
                 _boxManager.InitiatePreallocatedBoxes();
+                _tankManager.InitiatePreallocatedTanks();
                 
                 await _assetsManager.PreloadAssetAsync<Box>();
                 

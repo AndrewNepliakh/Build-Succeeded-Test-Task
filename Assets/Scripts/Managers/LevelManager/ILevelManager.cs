@@ -4,6 +4,6 @@ namespace Managers
 {
     public interface ILevelManager
     {
-        List<BoxesGridConfig> GetBoxesGridConfigsOfCurrentLevel();
+        LevelConfigData GetLevelConfigOfCurrentLevel();
     }
 }

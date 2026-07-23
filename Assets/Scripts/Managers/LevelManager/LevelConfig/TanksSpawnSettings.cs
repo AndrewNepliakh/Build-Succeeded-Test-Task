@@ -15,6 +15,6 @@ namespace Managers
     public class TanksSpawnColumn
     {
         public Transform _columnParent;
-        public List<Transform> _spawnPoint = new ();
+        public List<Transform> _spawnPoints = new ();
     }
 }
