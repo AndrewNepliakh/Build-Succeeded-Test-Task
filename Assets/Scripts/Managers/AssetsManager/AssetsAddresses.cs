@@ -1,3 +1,4 @@
+using UI;
 using System;
 using Entities;
 using System.Collections.Generic;
@@ -11,7 +12,10 @@ namespace Managers
             { typeof(Box), "Box" },
             { typeof(Tank), "Tank" },
             { typeof(BoxVisual), "BoxVisual" },
-            { typeof(Projectile), "Projectile" }
+            { typeof(Projectile), "Projectile" },
+            
+            //UI TestHUD
+            { typeof(TestHUD), "TestHUD" }
         };
 
         public static string Get<T>()

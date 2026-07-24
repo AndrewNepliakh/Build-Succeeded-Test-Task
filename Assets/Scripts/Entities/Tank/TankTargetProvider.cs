@@ -15,8 +15,6 @@ namespace Entities
 
         public Box Target => _target;
 
-        public event Action<Box> OnTargetFound;
-
         public void StartSearchTarget()
         {
             CancelInvoke(nameof(FindTarget));
@@ -69,8 +67,6 @@ namespace Entities
                 return;
 
             _target.GetComponentInChildren<BoxHitReceiver>().Reserve();
-
-            OnTargetFound?.Invoke(_target);
         }
 
         public void StopSearchTarget()

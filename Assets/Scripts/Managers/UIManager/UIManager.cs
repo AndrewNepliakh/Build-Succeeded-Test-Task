@@ -40,10 +40,7 @@ namespace UI
 
             if (!_popupsPool.ContainsKey(typeof(T)))
             {
-                var assetGo = _assetsManager.Instantiate<T>(
-                    Vector3.one,
-                    Quaternion.identity,
-                    parent);
+                var assetGo = _assetsManager.InstantiateUI<T>(parent);
 
                 _currentPopup = assetGo.GetComponent<T>();
                 _popupsPool.Add(typeof(T), _currentPopup);
@@ -89,10 +86,7 @@ namespace UI
 
             if (!_HUDPool.ContainsKey(typeof(T)))
             {
-                var assetGO = _assetsManager.Instantiate<T>(
-                    Vector3.zero,
-                    Quaternion.identity,
-                    parent);
+                var assetGO = _assetsManager.InstantiateUI<T>(parent);
 
                 _currentHUDWindow = assetGO.GetComponent<T>();
                 _HUDPool.Add(typeof(T), _currentHUDWindow);

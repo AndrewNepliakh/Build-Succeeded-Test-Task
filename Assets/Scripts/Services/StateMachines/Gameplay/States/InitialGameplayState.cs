@@ -1,3 +1,4 @@
+using UI;
 using System;
 using Zenject;
 using Managers;
@@ -9,6 +10,7 @@ namespace Services
 {
     public class InitialGameplayState : IState<GameplayStates>
     {
+        [Inject] private IUIManager _uiManager;
         [Inject] private IBoxManager _boxManager;
         [Inject] private ITankManager _tankManager;
         [Inject] private IAssetsManager _assetsManager;
@@ -30,6 +32,10 @@ namespace Services
                 await _assetsManager.PreloadAssetAsync<Box>();
                 
                 _boxManager.CreateBufferBoxes();
+                
+                await _assetsManager.PreloadAssetAsync<TestHUD>();
+                
+                await _uiManager.ShowHUDWindow<TestHUD>();
                 
                 await _assetsManager.PreloadAssetAsync<Tank>();
                 await _assetsManager.PreloadAssetAsync<BoxVisual>();

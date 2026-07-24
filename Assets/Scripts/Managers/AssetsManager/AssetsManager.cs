@@ -60,6 +60,19 @@ namespace Managers
 
             return gameObject.GetComponent<T>();
         }
+        
+        public T InstantiateUI<T>(Transform parent) where T : Component
+        {
+            var type = typeof(T);
+
+            if (!_loadedPrefabs.TryGetValue(type, out var handle) || !handle.IsValid())
+                throw new InvalidOperationException(
+                    $"Prefab '{type.Name}' is not preloaded.");
+
+            var gameObject = _diContainer.InstantiatePrefab(handle.Result, parent);
+
+            return gameObject.GetComponent<T>();
+        }
 
         public void Release<T>() where T : Component
         {

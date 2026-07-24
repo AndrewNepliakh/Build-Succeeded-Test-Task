@@ -9,6 +9,8 @@ namespace Entities
 {
     public class Box : MonoBehaviour, IPoolable
     {
+        public static event Action OnDespawnStatic;
+        
         [Inject] private IBoxManager _boxManager;
         
         private BoxData _boxData;
@@ -36,6 +38,7 @@ namespace Entities
         public void OnDespawn()
         {
             OnDespawnEvent?.Invoke(this);
+            OnDespawnStatic?.Invoke();
         }
     }
 

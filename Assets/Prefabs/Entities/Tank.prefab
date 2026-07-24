@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 3348082085367312182}
   - component: {fileID: 7412090959096977719}
   - component: {fileID: 7153383672366933500}
-  - component: {fileID: 8363925691145514377}
   - component: {fileID: 6007438827129532880}
   - component: {fileID: 5228211217864641081}
   - component: {fileID: 1105516284344551562}
@@ -106,20 +105,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 7246ec6b5d44c4c0a9d3c42208d6f571, type: 2}
   - {fileID: 2100000, guid: 0a46e482a75d3465e8acf69c7fb18ade, type: 2}
   - {fileID: 2100000, guid: 69c4e3f3d896049ed90a79374c3b326a, type: 2}
---- !u!114 &8363925691145514377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640602411252136096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80ee579a361147cc866f6c65ce0a46c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Entities.TankIndicatorAttribute
-  _tank: {fileID: 7412090959096977719}
-  _indicatorText: {fileID: 7325067364037159948}
 --- !u!114 &6007438827129532880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65189d96ae741eb9bc0d1492a4aa941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.TankShooter
+  _tank: {fileID: 7412090959096977719}
   _firePoint: {fileID: 3280441980233611030}
+  _indicatorText: {fileID: 7325067364037159948}
 --- !u!114 &6508950329493148298
 MonoBehaviour:
   m_ObjectHideFlags: 0

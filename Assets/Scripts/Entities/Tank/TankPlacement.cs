@@ -14,13 +14,12 @@ namespace Entities
         public void Occupy(Tank tank)
         {
             _currentTank = tank;
-            
-            _currentTank.GetComponent<TankTargetProvider>().StartSearchTarget();
         }
 
-        public void Release()
+        public void Release(Tank tank)
         {
-            _currentTank = null;
+            if (_currentTank == tank)
+                _currentTank = null;
         }
     }
 }

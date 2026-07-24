@@ -137,9 +137,13 @@ namespace Managers
                 placement = _tankPlacements[i];
                 break;
             }
-
+            
             if (placement == null) return;
-
+            
+            placement.Occupy(tank);
+            tank.GetComponent<TankPlacementAttribute>()
+                .SetPlacement(placement);
+            
             tank.transform.SetParent(null, true);
 
             tank.GetComponentInChildren<TankTapReceiver>()
@@ -159,8 +163,8 @@ namespace Managers
                 .SetEase(Ease.OutQuad)
                 .OnComplete(() =>
                 {
-                    tank.transform.position = end; 
-                    placement.Occupy(tank);
+                    tank.transform.position = end;
+                    tank.GetComponent<TankTargetProvider>().StartSearchTarget();
                 });
         }
     }
