@@ -21,7 +21,7 @@ namespace Entities
         {
             CancelInvoke(nameof(FindTarget));
 
-            InvokeRepeating(nameof(FindTarget), 0f, 0.15f);
+            InvokeRepeating(nameof(FindTarget), 0f, 0.16f);
         }
 
         private void FindTarget()

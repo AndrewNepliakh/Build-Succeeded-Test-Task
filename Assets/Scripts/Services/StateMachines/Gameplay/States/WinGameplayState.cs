@@ -10,8 +10,9 @@ namespace Services
 
         [Inject] private GameplayStateMachine<GameplayStates> _gameplayStateMachine;
         
-        public async Task Enter(ChangeStateData changeStateData = null)
+        public Task Enter(ChangeStateData changeStateData = null)
         {
+            return Task.CompletedTask;
         }
 
         public void Exit()

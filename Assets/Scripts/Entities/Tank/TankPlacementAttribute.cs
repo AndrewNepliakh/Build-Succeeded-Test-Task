@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Entities
 {
-    public class TankPlacementInitializer : MonoBehaviour, IInitializer
+    public class TankPlacementAttribute : MonoBehaviour, IInitializer
     {
         [Inject] private IPoolService _poolService;
         [Inject] private ITankManager _tankManager;

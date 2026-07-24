@@ -47,7 +47,7 @@ namespace Managers
                 var tankTransform = tanks[i].transform;
 
                 tanks[i]
-                    .GetComponent<TankMoveInitializer>()
+                    .GetComponent<TankMoveAttribute>()
                     .MoveTo(targetPosition)
                     .OnComplete(() =>
                     {

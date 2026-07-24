@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Entities
 {
-    public class TankIndicatorInitializer : MonoBehaviour, IInitializer
+    public class TankIndicatorAttribute : MonoBehaviour, IInitializer
     {
         [SerializeField] private Tank _tank;
         [SerializeField] private TMP_Text _indicatorText;

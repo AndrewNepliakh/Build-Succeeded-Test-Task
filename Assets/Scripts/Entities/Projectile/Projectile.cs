@@ -10,6 +10,8 @@ namespace Entities
     {
         [Inject] private IPoolService _poolService;
 
+        [SerializeField] private TrailRenderer _trail;
+
         private TankShooter _tankShooter;
         private Transform _target;
 
@@ -25,7 +27,7 @@ namespace Entities
             transform.position = _tankShooter.FirePoint.position;
 
             transform
-                .DOMove(target.position + Vector3.up * 0.5f, 0.2f)
+                .DOMove(target.position + Vector3.up * 0.5f, 0.15f)
                 .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
@@ -63,10 +65,16 @@ namespace Entities
         }
         public void OnSpawn()
         {
+            _trail.emitting = false;
+            _trail.Clear();
+            
+            _trail.emitting = true;
         }
 
         public void OnDespawn()
         {
+            _trail.emitting = false;
+            _trail.Clear();
         }
     }
 }
