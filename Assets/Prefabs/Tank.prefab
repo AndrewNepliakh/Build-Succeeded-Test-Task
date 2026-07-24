@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &354112457096889879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3280441980233611030}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3280441980233611030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354112457096889879}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3348082085367312182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &640602411252136096
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,6 +45,8 @@ GameObject:
   - component: {fileID: 8363925691145514377}
   - component: {fileID: 6007438827129532880}
   - component: {fileID: 5228211217864641081}
+  - component: {fileID: 1105516284344551562}
+  - component: {fileID: 5602719529572050337}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -36,6 +69,7 @@ Transform:
   m_Children:
   - {fileID: 3888289371792827376}
   - {fileID: 4188462054852698783}
+  - {fileID: 3280441980233611030}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7412090959096977719
@@ -112,6 +146,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b270a415eef7491aae3806ad9c7854be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.TankMoveAttribute
+--- !u!114 &1105516284344551562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640602411252136096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a8f019ac8bd4e6fafe923f06a2d465f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.TankTargetProvider
+  _tank: {fileID: 7412090959096977719}
+--- !u!114 &5602719529572050337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640602411252136096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65189d96ae741eb9bc0d1492a4aa941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.TankShooter
+  _targetProvider: {fileID: 1105516284344551562}
+  _firePoint: {fileID: 3280441980233611030}
 --- !u!1 &4474496736112473762
 GameObject:
   m_ObjectHideFlags: 0

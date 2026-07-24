@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Entities
 {
-    public class TankMoveAttribute : MonoBehaviour, IAttribute
+    public class TankMoveInitializer : MonoBehaviour, IInitializer
     {
         public void Initialize()
         {

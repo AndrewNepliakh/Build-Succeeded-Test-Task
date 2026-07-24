@@ -11,6 +11,7 @@ namespace Managers
             { typeof(Box), "Box" },
             { typeof(Tank), "Tank" },
             { typeof(BoxVisual), "BoxVisual" },
+            { typeof(Projectile), "Projectile" }
         };
 
         public static string Get<T>()

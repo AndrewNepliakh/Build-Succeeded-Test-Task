@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Entities;
 using UnityEngine;
 using DG.Tweening;
@@ -11,50 +12,48 @@ namespace Managers
         
         private int _currentColumn;
 
+        private Tween _shiftTween;
+
         public event Action<Transform> OnColumnShifted;
         
         private void ShiftColumn(Box box)
         {
-            _parentColumn = box.ParentColumn;
-            
-            _currentColumn = Array.IndexOf(_columnParents, _parentColumn);
-            
             box.OnDespawnEvent -= ShiftColumn;
 
-            _parentColumn
-                .DOMoveZ(_parentColumn.position.z + 1f, 0.1f)
-                .SetDelay(0.0625f)
-                .SetEase(Ease.OutQuad)
-                .OnComplete(() =>
-                {
-                    var position = _parentColumn.position;
-                    position.z = Mathf.Round(position.z);
-                    _parentColumn.position = position;
-
-                    OnCompleteShift();
-                });
-        }
-
-        private void OnCompleteShift()
-        {
-            ActivateDamageReceiveFrontLineBoxes();
-            AddNextBox();
+            var parentColumn = box.ParentColumn;
+            var columnParents = _columnParents.Select(x => x.transform).ToArray();
             
-            OnColumnShifted?.Invoke(_parentColumn);
+            var currentColumn = Array.IndexOf(columnParents, parentColumn);
+            
+            var shifter = parentColumn.GetComponent<ColumnShifter>();
+
+            shifter.Shift(() =>
+            {
+                ActivateDamageReceiveFrontLineBoxes(parentColumn);
+                AddNextBox(parentColumn, currentColumn);
+
+                OnColumnShifted?.Invoke(parentColumn);
+            });
         }
 
-        private void ActivateDamageReceiveFrontLineBoxes()
+        private void ActivateDamageReceiveFrontLineBoxes(Transform parentColumn)
         {
-            var frontBox = _parentColumn.GetChild(0);
+            foreach (Transform child in parentColumn)
+            {
+                if (!Mathf.Approximately(child.position.z, 9f))
+                    continue;
 
-            frontBox
-                .GetComponentInChildren<BoxHitReceiver>()
-                .SetCanReceiveTap(true);
+                child
+                    .GetComponentInChildren<BoxHitReceiver>()
+                    .SetCanReceiveTap(true);
+
+                break;
+            }
         }
 
-        private void AddNextBox()
+        private void AddNextBox(Transform parentColumn, int currentColumn)
         {
-            var dataColumn = BoxesGridConfig.Width - 1 - _currentColumn;
+            var dataColumn = BoxesGridConfig.Width - 1 - currentColumn;
 
             var boxDataIndex = _nextBoxDataIndexPerColumn[dataColumn];
 
@@ -65,14 +64,14 @@ namespace Managers
             _nextBoxDataIndexPerColumn[dataColumn]++;
 
             var box = _poolService.Spawn<Box>(
-                new Vector3(_currentColumn, 0f, -5f),
+                new Vector3(currentColumn, 0f, -5f),
                 Quaternion.identity,
-                _parentColumn);
+                parentColumn);
 
             box.Initiate(new BoxArguments
             {
                 BoxData = boxData,
-                ParentColumn = _parentColumn
+                ParentColumn = parentColumn
             });
 
             box.OnDespawnEvent += ShiftColumn;

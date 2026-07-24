@@ -1,6 +1,6 @@
 namespace Entities
 {
-    public interface IAttribute
+    public interface IInitializer
     {
         void Initialize();
     }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Entities
 {
-    public class BoxColorAttribute : MonoBehaviour, IAttribute
+    public class BoxColorInitializer : MonoBehaviour, IInitializer
     {
         [SerializeField] private Box _box;
         [Space(10)]

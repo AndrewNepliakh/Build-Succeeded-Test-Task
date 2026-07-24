@@ -19,10 +19,10 @@ namespace Entities
         {
             if (!_canReceiveTap) return;
 
-            ReceiveTap();
+            ReceiveHit();
         }
 
-        public void ReceiveTap()
+        public void ReceiveHit()
         {
             OnTapEvent?.Invoke();
         }

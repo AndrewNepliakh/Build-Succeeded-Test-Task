@@ -2,7 +2,6 @@ using System;
 using Services;
 using UnityEngine;
 using Sirenix.Utilities;
-using Object = UnityEngine.Object;
 
 namespace Entities
 {
@@ -22,7 +21,7 @@ namespace Entities
             _tankData = tankArguments.TankData;
             _parentColumn = tankArguments.ParentColumn;
 
-            GetComponentsInChildren<IAttribute>().ForEach(x => x.Initialize());
+            GetComponentsInChildren<IInitializer>().ForEach(x => x.Initialize());
         }
         
         public void OnSpawn()

@@ -2,7 +2,7 @@ namespace Entities
 {
     public interface IHitReceiver
     {
-        void ReceiveTap();
+        void ReceiveHit();
         public void SetCanReceiveTap(bool value);
     }
 }

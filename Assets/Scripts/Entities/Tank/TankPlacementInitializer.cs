@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Entities
 {
-    public class TankPlacementAttribute : MonoBehaviour, IAttribute
+    public class TankPlacementInitializer : MonoBehaviour, IInitializer
     {
         [Inject] private IPoolService _poolService;
         [Inject] private ITankManager _tankManager;
@@ -20,7 +20,6 @@ namespace Entities
 
         private void OnTap()
         {
-            _poolService.Despawn(_tank);
             _tankManager.MoveToPlacement(_tank);
         }
 

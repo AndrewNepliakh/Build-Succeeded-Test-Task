@@ -47,7 +47,7 @@ namespace Managers
                 var tankTransform = tanks[i].transform;
 
                 tanks[i]
-                    .GetComponent<TankMoveAttribute>()
+                    .GetComponent<TankMoveInitializer>()
                     .MoveTo(targetPosition)
                     .OnComplete(() =>
                     {
@@ -66,7 +66,7 @@ namespace Managers
             ActivateTapFrontLineTanks();
             AddNextTank();
         }
-        
+
         private void ActivateTapFrontLineTanks()
         {
             var sp0 = _currentSpawnColumn.SpawnPoints[0].position;
@@ -95,7 +95,7 @@ namespace Managers
                     .SetCanReceiveTap(true);
             }
         }
-        
+
         private void AddNextTank()
         {
             var dataColumn = _currentColumn;
@@ -127,7 +127,41 @@ namespace Managers
 
         public void MoveToPlacement(Tank tank)
         {
+            TankPlacement placement = null;
+
+            for (var i = 0; i < _tankPlacements.Count; i++)
+            {
+                if (_tankPlacements[i].IsOccupied)
+                    continue;
+
+                placement = _tankPlacements[i];
+                break;
+            }
+
+            if (placement == null) return;
+
+            tank.transform.SetParent(null, true);
+
+            tank.GetComponentInChildren<TankTapReceiver>()
+                .SetCanReceiveTap(false);
+
             ShiftColumn(tank);
+
+            var start = tank.transform.position;
+            var end = placement.Pivot.position;
+
+            var middle = (start + end) * 0.5f;
+            middle.y += 2.0f;
+
+            tank.transform.DOPath(
+                    new[] { middle, end },
+                    0.175f, PathType.CatmullRom)
+                .SetEase(Ease.OutQuad)
+                .OnComplete(() =>
+                {
+                    tank.transform.position = end; 
+                    placement.Occupy(tank);
+                });
         }
     }
 }

@@ -6,7 +6,8 @@ namespace Managers
 {
     public interface IBoxManager
     {
-        void Initiate(Transform[] columsParents, Box[] preallocatedBoxes);
+        ColumnShifter[] GetColumns();
+        void Initiate(ColumnShifter[] columsParents, Box[] preallocatedBoxes);
         void InitiateAllBoxDatasPerColumns();
         void InitiatePreallocatedBoxes();
         void CreateBufferBoxes();

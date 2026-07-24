@@ -33,6 +33,7 @@ namespace Services
                 
                 await _assetsManager.PreloadAssetAsync<Tank>();
                 await _assetsManager.PreloadAssetAsync<BoxVisual>();
+                await _assetsManager.PreloadAssetAsync<Projectile>();
             }
             catch (Exception e)
             {

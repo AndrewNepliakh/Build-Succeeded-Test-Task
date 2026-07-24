@@ -14,13 +14,15 @@ namespace Managers
 
         [Inject] private DiContainer _diContainer;
 
-        private Transform[] _columnParents;
+        private ColumnShifter[] _columnParents;
         private Box[] _preallocatedBoxes;
 
         private readonly Dictionary<int, List<BoxData>> _boxDatasPerColumns = new();
         private readonly Dictionary<int, int> _nextBoxDataIndexPerColumn = new();
+        
+        public ColumnShifter[] GetColumns() => _columnParents;
 
-        public void Initiate(Transform[] columnParents, Box[] preallocatedBoxes)
+        public void Initiate(ColumnShifter[] columnParents, Box[] preallocatedBoxes)
         {
             _columnParents = columnParents;
             _preallocatedBoxes = preallocatedBoxes;
@@ -79,7 +81,7 @@ namespace Managers
                         var args = new BoxArguments
                         {
                             BoxData = _boxDatasPerColumns[column][boxDataIndex],
-                            ParentColumn = _columnParents[worldX]
+                            ParentColumn = _columnParents[worldX].transform
                         };
 
                         box.Initiate(args);
@@ -124,15 +126,18 @@ namespace Managers
                     var box = _poolService.Spawn<Box>(
                         position,
                         Quaternion.identity,
-                        _columnParents[worldX]);
+                        _columnParents[worldX].transform);
 
                     var args = new BoxArguments
                     {
                         BoxData = boxData,
-                        ParentColumn = _columnParents[worldX]
+                        ParentColumn = _columnParents[worldX].transform
                     };
 
                     box.Initiate(args);
+                    
+                    var damageReceiver = box.GetComponentInChildren<BoxHitReceiver>();
+                    damageReceiver.SetCanReceiveTap(false);
 
                     box.OnDespawnEvent += ShiftColumn;
                 }

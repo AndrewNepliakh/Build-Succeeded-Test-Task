@@ -1294,7 +1294,7 @@ MonoBehaviour:
       Data: Entities.TankData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: ShootsCount
       Entry: 3
       Data: 20
@@ -1318,7 +1318,7 @@ MonoBehaviour:
       Data: Entities.TankData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: ShootsCount
       Entry: 3
       Data: 10
@@ -1342,10 +1342,10 @@ MonoBehaviour:
       Data: Entities.TankData, Assembly-CSharp
     - Name: Color
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: ShootsCount
       Entry: 3
-      Data: 30
+      Data: 10
     - Name: 
       Entry: 8
       Data: 

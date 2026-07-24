@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Entities
 {
-    public class BoxStackAttribute : MonoBehaviour, IAttribute
+    public class BoxStackInitializer : MonoBehaviour, IInitializer
     {
         [Inject] private IPoolService _poolService;
         [Inject] private IBoxManager _boxManager;

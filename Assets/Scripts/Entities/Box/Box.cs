@@ -1,13 +1,16 @@
 using System;
-using Services;
-using Sirenix.Utilities;
+using Zenject;
+using Managers;
 using UnityEngine;
-using Object = UnityEngine.Object;
+using Sirenix.Utilities;
+using IPoolable = Services.IPoolable;
 
 namespace Entities
 {
     public class Box : MonoBehaviour, IPoolable
     {
+        [Inject] private IBoxManager _boxManager;
+        
         private BoxData _boxData;
         private Transform _parentColumn;
         
@@ -22,7 +25,7 @@ namespace Entities
             _boxData = boxArguments.BoxData;
             _parentColumn = boxArguments.ParentColumn;
 
-            GetComponentsInChildren<IAttribute>().ForEach(x => x.Initialize());
+            GetComponentsInChildren<IInitializer>().ForEach(x => x.Initialize());
         }
 
         public void OnSpawn()

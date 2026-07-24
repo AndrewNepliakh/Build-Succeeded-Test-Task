@@ -14,7 +14,7 @@ namespace Controllers
         [Inject] private ITankManager _tankManager;
         
         
-        [SerializeField] private Transform[] _columnParents = new Transform[BoxesGridConfig.Width];
+        [SerializeField] private ColumnShifter[] _columnParents = new ColumnShifter[BoxesGridConfig.Width];
         [SerializeField] private Box[] _preallocatedBoxes = new Box[BoxesGridConfig.Width * BoxesGridConfig.Height];
         [Space(20)]
         [SerializeField] private List<TanksSpawnSettings> _tanksSpawnSettings = new ();

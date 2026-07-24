@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Entities
 {
-    public class TankColorAttribute : MonoBehaviour, IAttribute
+    public class TankColorInitializer : MonoBehaviour, IInitializer
     {
         [SerializeField] private Tank _tank;
         [Space(10)]
