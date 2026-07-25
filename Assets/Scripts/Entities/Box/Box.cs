@@ -21,6 +21,7 @@ namespace Entities
         public Transform ParentColumn => _parentColumn;
         
         public event Action<Box> OnDespawnEvent; 
+        public event Action<Box> OnDisableEvent; 
         
         public void Initiate(BoxArguments boxArguments)
         {
@@ -37,8 +38,13 @@ namespace Entities
 
         public void OnDespawn()
         {
-            OnDespawnEvent?.Invoke(this);
             OnDespawnStatic?.Invoke();
+            OnDespawnEvent?.Invoke(this);
+        }
+
+        private void OnDisable()
+        {
+            OnDisableEvent?.Invoke(this);
         }
     }
 

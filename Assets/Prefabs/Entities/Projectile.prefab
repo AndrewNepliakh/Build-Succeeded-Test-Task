@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8788748592569854638}
   - component: {fileID: 5182977069022699849}
   - component: {fileID: 4676007570017080564}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3942331451232144327}
   - component: {fileID: 3282755628044269256}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

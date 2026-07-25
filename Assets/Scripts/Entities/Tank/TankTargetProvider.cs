@@ -1,28 +1,27 @@
-using System;
 using Zenject;
 using Managers;
 using UnityEngine;
 
 namespace Entities
 {
-    public class TankTargetProvider : MonoBehaviour
+    public class TankTargetProvider : MonoBehaviour, IInitializer
     {
         [Inject] private IBoxManager _boxManager;
 
         [SerializeField] private Tank _tank;
 
         private Box _target;
+        private TankPlacementAttribute _tankPlacementAttribute;
 
         public Box Target => _target;
-
-        public void StartSearchTarget()
+        
+        public void Initialize()
         {
-            CancelInvoke(nameof(FindTarget));
-
-            InvokeRepeating(nameof(FindTarget), 0f, 0.16f);
+            _boxManager.OnColumnShifted += OnColumnShifted;
+            _tankPlacementAttribute = GetComponent<TankPlacementAttribute>();
         }
 
-        private void FindTarget()
+        public void FindTarget()
         {
             Box newTarget = null;
             var bestDistance = float.MaxValue;
@@ -33,18 +32,18 @@ namespace Entities
                 {
                     if (!child.TryGetComponent(out Box box))
                         continue;
-
+                    
                     var hitReceiver = box.GetComponentInChildren<BoxHitReceiver>();
 
                     if (!hitReceiver.CanReceiveHit)
                         continue;
-
+                    
                     if (hitReceiver.IsReserved)
                         continue;
-
+                    
                     if (box.BoxData.Color != _tank.TankData.Color)
                         continue;
-
+                    
                     var distance = (box.transform.position - transform.position).sqrMagnitude;
 
                     if (distance >= bestDistance)
@@ -54,30 +53,44 @@ namespace Entities
                     newTarget = box;
                 }
             }
-
-            if (newTarget == _target)
+            
+            if (newTarget != null && newTarget == _target)
                 return;
-
-            if (_target != null)
-                _target.GetComponentInChildren<BoxHitReceiver>().Release();
-
+            
             _target = newTarget;
-
-            if (_target == null)
-                return;
-
+            
+            if (_target == null) return;
+            
             _target.GetComponentInChildren<BoxHitReceiver>().Reserve();
+            
+            _target.OnDisableEvent += OnTargetDisable;
         }
 
-        public void StopSearchTarget()
+        private void OnTargetDisable(Box box)
         {
-            CancelInvoke(nameof(FindTarget));
-            _target = null;
+            if (box != _target) return;
+            
+            _target.OnDisableEvent -= OnTargetDisable;
+            
+            if(!gameObject.activeSelf) return;
+            
+            FindTarget();
+        }
+        
+        private void OnColumnShifted(Transform column)
+        {
+            if (_target == null)
+            {
+                if (_tankPlacementAttribute.IsSetToPlacement)
+                {
+                    FindTarget();
+                }
+            }
         }
 
         private void OnDisable()
         {
-            StopSearchTarget();
+            _boxManager.OnColumnShifted -= OnColumnShifted;
         }
     }
 }

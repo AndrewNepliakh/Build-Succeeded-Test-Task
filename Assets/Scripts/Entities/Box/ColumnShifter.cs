@@ -10,6 +10,8 @@ namespace Entities
 
         public bool IsShifting => _shiftTween != null && _shiftTween.IsActive();
 
+        public event Action<Transform> OnShifted;
+
         public void Shift(Action onComplete)
         {
             if (IsShifting)
@@ -28,6 +30,7 @@ namespace Entities
                     _shiftTween = null;
 
                     onComplete?.Invoke();
+                    OnShifted?.Invoke(transform);
                 });
         }
 

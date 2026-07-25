@@ -8,28 +8,34 @@ namespace Entities
     public class BoxHitReceiver : MonoBehaviour, IHitReceiver, ITappable
     {
         [SerializeField] private Image _indicator;
+        [SerializeField] private BoxCollider _boxCollider;
 
         private bool _canReceiveHit;
         private bool _isReserved;
 
         public bool CanReceiveHit => _canReceiveHit;
         public bool IsReserved => _isReserved;
+        
+        public event Action OnHit;
 
         public void SetCanReceiveTap(bool value)
         {
             _canReceiveHit = value;
+            _boxCollider.enabled = _isReserved;
             RefreshIndicator();
         }
 
         public void Reserve()
         {
             _isReserved = true;
+            _boxCollider.enabled = _isReserved;
             RefreshIndicator();
         }
 
         public void Release()
         {
             _isReserved = false;
+            _boxCollider.enabled = _isReserved;
             RefreshIndicator();
         }
 
@@ -42,9 +48,7 @@ namespace Entities
             else
                 _indicator.color = Color.green;
         }
-
-        public event Action OnHit;
-
+        
         public void OnTap()
         {
             if (!_canReceiveHit)
@@ -62,6 +66,7 @@ namespace Entities
         {
             _canReceiveHit = false;
             _isReserved = false;
+            _boxCollider.enabled = false;
             RefreshIndicator();
         }
     }

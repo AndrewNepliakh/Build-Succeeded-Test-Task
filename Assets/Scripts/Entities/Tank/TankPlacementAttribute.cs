@@ -10,7 +10,10 @@ namespace Entities
 
         [SerializeField] private Tank _tank;
         [SerializeField] private TankTapReceiver _tankTapReceiver;
+        
         private TankPlacement _placement;
+
+        public bool IsSetToPlacement => _placement != null;
         
         public void Initialize()
         {

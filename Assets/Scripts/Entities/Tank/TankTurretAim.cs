@@ -14,12 +14,15 @@ namespace Entities
         private Box _lastShotTarget;
         
         private float _targetLostTime;
+        private TankPlacementAttribute _tankPlacementAttribute;
 
         public void Initialize()
         {
             _defaultLocalY = _turret.localEulerAngles.y;
             _lastShotTarget = null;
             _targetLostTime = -1f;
+            
+            _tankPlacementAttribute = GetComponent<TankPlacementAttribute>();
         }
 
         private void Update()
@@ -70,7 +73,11 @@ namespace Entities
             if (delta <= _aimTolerance)
             {
                 _lastShotTarget = _targetProvider.Target;
-                _tankShooter.Shoot(_targetProvider.Target);
+                
+                if (_tankPlacementAttribute.IsSetToPlacement)
+                {
+                    _tankShooter.Shoot(_targetProvider.Target);
+                }
             }
         }
 

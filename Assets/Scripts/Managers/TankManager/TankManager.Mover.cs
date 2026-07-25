@@ -9,6 +9,8 @@ namespace Managers
     {
         private TanksSpawnColumn _currentSpawnColumn;
         private int _currentColumn;
+        
+        private Tween _moveToPlacementTween;
 
         private void ShiftColumn(Tank tank)
         {
@@ -127,6 +129,8 @@ namespace Managers
 
         public void MoveToPlacement(Tank tank)
         {
+            if(_moveToPlacementTween != null && _moveToPlacementTween.IsActive()) return;
+            
             TankPlacement placement = null;
 
             for (var i = 0; i < _tankPlacements.Count; i++)
@@ -157,14 +161,14 @@ namespace Managers
             var middle = (start + end) * 0.5f;
             middle.y += 2.0f;
 
-            tank.transform.DOPath(
+            _moveToPlacementTween = tank.transform.DOPath(
                     new[] { middle, end },
                     0.175f, PathType.CatmullRom)
                 .SetEase(Ease.OutQuad)
                 .OnComplete(() =>
                 {
                     tank.transform.position = end;
-                    tank.GetComponent<TankTargetProvider>().StartSearchTarget();
+                    tank.GetComponent<TankTargetProvider>().FindTarget();
                 });
         }
     }

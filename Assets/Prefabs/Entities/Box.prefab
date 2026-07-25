@@ -604,6 +604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.BoxDamageReceiver
   _indicator: {fileID: 5598707054059632858}
+  _boxCollider: {fileID: 5800685149891089584}
 --- !u!23 &8396771502427603736 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 5078bccc4e681447b99e140a6c49bcf6, type: 3}

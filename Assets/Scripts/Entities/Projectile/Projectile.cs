@@ -26,16 +26,7 @@ namespace Entities
 
             transform.position = _tankShooter.FirePoint.position;
 
-            transform
-                .DOMove(target.position + Vector3.up * 0.5f, 0.15f)
-                .SetEase(Ease.Linear)
-                .OnComplete(() =>
-                {
-                    DOVirtual.DelayedCall(0.1f, () =>
-                    {
-                        _poolService.Despawn(this);
-                    });
-                });
+            transform.DOMove(target.position + Vector3.up * 0.5f, 0.15f).SetEase(Ease.Linear);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -45,14 +36,13 @@ namespace Entities
             
             if (!other.transform.IsChildOf(_target))
                 return;
-
+            
             var ok = other.TryGetComponent<IHitReceiver>(out var hitReceiver);
 
-            if (!ok)
-                return;
-
+            if (!ok) return;
+            
             hitReceiver.ReceiveHit();
-
+            
             _poolService.Despawn(this);
         }
 
