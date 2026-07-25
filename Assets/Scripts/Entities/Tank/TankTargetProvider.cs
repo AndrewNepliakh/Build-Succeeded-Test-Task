@@ -1,5 +1,6 @@
 using Zenject;
 using Managers;
+using Services;
 using UnityEngine;
 
 namespace Entities
@@ -7,6 +8,7 @@ namespace Entities
     public class TankTargetProvider : MonoBehaviour, IInitializer
     {
         [Inject] private IBoxManager _boxManager;
+        [Inject]  private ITargetFindService _targetFindService;
 
         [SerializeField] private Tank _tank;
 
@@ -21,49 +23,39 @@ namespace Entities
             _tankPlacementAttribute = GetComponent<TankPlacementAttribute>();
         }
 
-        public void FindTarget()
+        private bool _isFindingTarget;
+
+        public async void FindTarget()
         {
-            Box newTarget = null;
-            var bestDistance = float.MaxValue;
+            if (_isFindingTarget) return;
 
-            foreach (var column in _boxManager.GetColumns())
+            _isFindingTarget = true;
+
+            try
             {
-                foreach (Transform child in column.transform)
-                {
-                    if (!child.TryGetComponent(out Box box))
-                        continue;
-                    
-                    var hitReceiver = box.GetComponentInChildren<BoxHitReceiver>();
+                var newTarget = await _targetFindService.FindTarget(_tank, transform.position);
 
-                    if (!hitReceiver.CanReceiveHit)
-                        continue;
-                    
-                    if (hitReceiver.IsReserved)
-                        continue;
-                    
-                    if (box.BoxData.Color != _tank.TankData.Color)
-                        continue;
-                    
-                    var distance = (box.transform.position - transform.position).sqrMagnitude;
+                if (newTarget == _target)
+                    return;
 
-                    if (distance >= bestDistance)
-                        continue;
+                if (_target != null)
+                    _target.OnDisableEvent -= OnTargetDisable;
 
-                    bestDistance = distance;
-                    newTarget = box;
-                }
+                _target = newTarget;
+
+                if (_target == null)
+                    return;
+
+                _target.GetComponentInChildren<BoxHitReceiver>().Reserve();
+                
+                _target.OnDisableEvent += OnTargetDisable;
+                
+                GetComponent<TankShooter>().Shoot(_target);
             }
-            
-            if (newTarget != null && newTarget == _target)
-                return;
-            
-            _target = newTarget;
-            
-            if (_target == null) return;
-            
-            _target.GetComponentInChildren<BoxHitReceiver>().Reserve();
-            
-            _target.OnDisableEvent += OnTargetDisable;
+            finally
+            {
+                _isFindingTarget = false;
+            }
         }
 
         private void OnTargetDisable(Box box)

@@ -25,6 +25,7 @@ namespace Infrastructure
                 .AsSingle().NonLazy();
 
             Container.Bind<IPoolService>().To<PoolService>().AsSingle().NonLazy();
+            Container.Bind<ITargetFindService>().To<TargetFindService>().AsSingle().NonLazy();
 
             Container.Bind<GameplayStateMachine<GameplayStates>>().AsSingle().NonLazy();
 
