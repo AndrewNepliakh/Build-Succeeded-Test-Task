@@ -17,6 +17,8 @@ namespace Entities
 
         public Box Target => _target;
         
+        private bool _waitingForShot;
+        
         public void Initialize()
         {
             _boxManager.OnColumnShifted += OnColumnShifted;
@@ -27,6 +29,8 @@ namespace Entities
 
         public async void FindTarget()
         {
+            if (_waitingForShot) return;
+            
             if (_isFindingTarget) return;
 
             _isFindingTarget = true;
@@ -50,7 +54,7 @@ namespace Entities
                 
                 _target.OnDisableEvent += OnTargetDisable;
                 
-                GetComponent<TankShooter>().Shoot(_target);
+                _waitingForShot = true;
             }
             finally
             {
@@ -78,6 +82,11 @@ namespace Entities
                     FindTarget();
                 }
             }
+        }
+        
+        public void OnShot()
+        {
+            _waitingForShot = false;
         }
 
         private void OnDisable()

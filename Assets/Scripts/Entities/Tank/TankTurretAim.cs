@@ -76,7 +76,9 @@ namespace Entities
                 
                 if (_tankPlacementAttribute.IsSetToPlacement)
                 {
+                    _tankShooter.Shoot(_targetProvider.Target);
                     
+                    _targetProvider.OnShot();
                 }
             }
         }
