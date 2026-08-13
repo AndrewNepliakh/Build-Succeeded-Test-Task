@@ -12,7 +12,7 @@ namespace Managers
         public const int Height = 10;
 
         [OdinSerialize]
-        [TableMatrix(SquareCells = true, ResizableColumns = false, DrawElementMethod = nameof(DrawGrid))]
+        [TableMatrix(SquareCells = true, ResizableColumns = false, DrawElementMethod = "DrawGrid")]
         public BoxData[,] Grid = new BoxData[Width, Height];
     }
 }

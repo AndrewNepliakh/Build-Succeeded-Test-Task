@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c6510bd928ca4c0aa9e537e4c2eb1a4
+    m_Address: BoxDebris
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 91def166975bd4ac3aa843a49a8c19b9
     m_Address: TestHUD
     m_ReadOnly: 0

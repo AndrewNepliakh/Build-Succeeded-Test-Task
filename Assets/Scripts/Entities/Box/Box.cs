@@ -9,7 +9,7 @@ namespace Entities
 {
     public class Box : MonoBehaviour, IPoolable
     {
-        public static event Action OnDespawnStatic;
+        public static event Action OnDespawnStaticEvent;
         
         [Inject] private IBoxManager _boxManager;
         
@@ -22,6 +22,7 @@ namespace Entities
         
         public event Action<Box> OnDespawnEvent; 
         public event Action<Box> OnDisableEvent; 
+        public event Action<Box> OnAdditionalShoot; 
         
         public void Initiate(BoxArguments boxArguments)
         {
@@ -38,8 +39,18 @@ namespace Entities
 
         public void OnDespawn()
         {
-            OnDespawnStatic?.Invoke();
+            OnDespawnStaticEvent?.Invoke();
             OnDespawnEvent?.Invoke(this);
+        }
+        
+        public static void OnDespawnStatic()
+        {
+            OnDespawnStaticEvent?.Invoke();
+        }
+        
+        public void AdditionalShoot()
+        {
+            OnAdditionalShoot?.Invoke(this);
         }
 
         private void OnDisable()

@@ -63,7 +63,7 @@ namespace Managers
             var boxesByArrayIndex = _preallocatedBoxes.ToDictionary(
                 box =>
                 {
-                    var index = box.GetComponent<ArrayIndexAttribute>();
+                    var index = box.GetComponent<BoxArrayIndexAttribute>();
                     return (index.X, index.Z);
                 });
 

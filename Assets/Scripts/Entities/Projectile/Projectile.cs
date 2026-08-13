@@ -17,42 +17,34 @@ namespace Entities
 
         public GameObject GameObject => gameObject;
         
+        private Tween _tween;
+        
         public void Initialize(TankShooter tankShooter, Transform target)
         {
-            transform.DOKill();
-
+            if(_tween != null && _tween.IsActive()) return;
+            
             _tankShooter = tankShooter;
             _target = target;
 
             transform.position = _tankShooter.FirePoint.position;
 
-            transform.DOMove(target.position + Vector3.up * 0.5f, 0.15f).SetEase(Ease.Linear);
-        }
+            var targetPosition = new Vector3(
+                _target.position.x,
+                0.5f,
+                _target.position.z);
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (_target == null)
-                return;
-            
-            if (!other.transform.IsChildOf(_target))
-                return;
-            
-            var ok = other.TryGetComponent<IHitReceiver>(out var hitReceiver);
-
-            if (!ok) return;
-            
-            hitReceiver.ReceiveHit();
-            
-            _poolService.Despawn(this);
+            _tween = transform.DOMove(targetPosition, 0.15f).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                _target.GetComponent<IHitReceiver>().ReceiveHit(_tankShooter);
+                _poolService.Despawn(this);
+            });
         }
 
         private void OnDisable()
         {
             transform.DOKill();
-
-            _target = null;
-            _tankShooter = null;
         }
+        
         public void OnSpawn()
         {
             _trail.emitting = false;

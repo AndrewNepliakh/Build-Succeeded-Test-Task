@@ -15,7 +15,10 @@ namespace Managers
             { typeof(Projectile), "Projectile" },
             
             //UI TestHUD
-            { typeof(TestHUD), "TestHUD" }
+            { typeof(TestHUD), "TestHUD" },
+            
+            //VFX BoxDebris
+            { typeof(BoxDebris), "BoxDebris" }
         };
 
         public static string Get<T>()

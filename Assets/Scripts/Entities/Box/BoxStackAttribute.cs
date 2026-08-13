@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Entities
 {
-    public class BoxStackInitializer : MonoBehaviour, IInitializer
+    public class BoxStackAttribute : MonoBehaviour, IInitializer
     {
         [Inject] private IPoolService _poolService;
         [Inject] private IBoxManager _boxManager;
@@ -29,19 +29,19 @@ namespace Entities
         private void OnColumnShifted(Transform parentColumn)
         {
             if (parentColumn != _box.ParentColumn) return;
-            
+
             RefreshExtraBoxes();
         }
 
         private void InitialShowExtraBoxes()
         {
             _currentExtraBoxes = Mathf.Min(_box.BoxData.StackHeight - 1, _boxVisuals.Count);
-            
+
             if (transform.position.z < 0) return;
-            
+
             foreach (var visual in _boxVisuals)
                 visual.gameObject.SetActive(false);
-            
+
             for (var i = 0; i < _currentExtraBoxes; i++)
                 _boxVisuals[i].gameObject.SetActive(true);
         }
@@ -49,24 +49,26 @@ namespace Entities
         private void RefreshExtraBoxes()
         {
             if (!Mathf.Approximately(transform.position.z, 0f)) return;
-            
+
             for (var i = 0; i < _currentExtraBoxes; i++)
                 _boxVisuals[i].gameObject.SetActive(true);
         }
 
-        private void OnHit()
+        private void OnHit(IAttackSource attackSource)
         {
             if (_currentExtraBoxes > 0)
             {
                 _currentExtraBoxes--;
                 _boxVisuals[_currentExtraBoxes].gameObject.SetActive(false);
                 
+                Box.OnDespawnStatic();
+            
                 transform.DOKill();
-                
+            
                 var position = transform.position;
                 position.y += 1f;
                 transform.position = position;
-                
+            
                 transform.DOMoveY(0f, 0.1f)
                     .SetEase(Ease.OutQuad)
                     .OnComplete(() =>
@@ -74,11 +76,15 @@ namespace Entities
                         var finalPosition = transform.position;
                         finalPosition.y = 0f;
                         transform.position = finalPosition;
+            
+                       if(!attackSource.GameObject.activeSelf) return;
+                        
+                        _box.AdditionalShoot();
                     });
-                
+            
                 return;
             }
-            
+
             _poolService.Despawn(_box);
         }
 

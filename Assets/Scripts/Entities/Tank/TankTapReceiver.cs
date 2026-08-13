@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Entities
 {
-    public class TankTapReceiver : MonoBehaviour, IHitReceiver, ITappable
+    public class TankTapReceiver : MonoBehaviour, ITappable
     {
         private bool _canReceiveTap;
 
@@ -19,11 +19,6 @@ namespace Entities
         {
             if (!_canReceiveTap) return;
 
-            ReceiveHit();
-        }
-
-        public void ReceiveHit()
-        {
             OnTapEvent?.Invoke();
         }
         

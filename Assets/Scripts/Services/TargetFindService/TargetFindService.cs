@@ -1,9 +1,9 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using Zenject;
 using Entities;
 using Managers;
 using UnityEngine;
-using Zenject;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Services
 {
@@ -51,7 +51,7 @@ namespace Services
             finally
             {
                 _processingTask = null;
-                
+
                 if (_queue.Count > 0)
                     _processingTask = ProcessQueue();
             }

@@ -23,7 +23,7 @@ namespace Managers
         [TableMatrix(
             SquareCells = true,
             ResizableColumns = false,
-            DrawElementMethod = nameof(DrawGrid))]
+            DrawElementMethod = "DrawGrid")]
         public TankData[,] Grid = new TankData[MaxWidth, Height];
 
         public void Resize(int width)

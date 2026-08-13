@@ -78,7 +78,7 @@ namespace Entities
                 {
                     _tankShooter.Shoot(_targetProvider.Target);
                     
-                    _targetProvider.OnShot();
+                    _targetProvider.ResetWaitingForShot();
                 }
             }
         }

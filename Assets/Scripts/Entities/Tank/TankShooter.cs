@@ -1,12 +1,12 @@
+using TMPro;
 using System;
 using Zenject;
 using Services;
-using TMPro;
 using UnityEngine;
 
 namespace Entities
 {
-    public class TankShooter : MonoBehaviour, IInitializer
+    public class TankShooter : MonoBehaviour, IInitializer, IAttackSource
     {
         public static event Action OnShootStatic;
         
@@ -19,6 +19,10 @@ namespace Entities
         private int _shotsLeft;
 
         public Transform FirePoint => _firePoint;
+        public GameObject GameObject => gameObject;
+        
+        public event Action OnShootEvent;
+        public event Action OnDisableEvent;
 
         public void Initialize()
         {
@@ -36,8 +40,6 @@ namespace Entities
 
             _shotsLeft--;
             
-            OnShootStatic?.Invoke();
-            
             _indicatorText.text = _shotsLeft.ToString();
 
             var projectile = _poolService.Spawn<Projectile>(
@@ -45,11 +47,20 @@ namespace Entities
                 Quaternion.identity);
 
             projectile.Initialize(this, target.transform);
+            
+            OnShootEvent?.Invoke();
+            
+            OnShootStatic?.Invoke();
 
             if (_shotsLeft == 0)
             {
                 _poolService.Despawn(_tank);
             }
+        }
+
+        private void OnDisable()
+        {
+            OnDisableEvent?.Invoke();
         }
     }
 }

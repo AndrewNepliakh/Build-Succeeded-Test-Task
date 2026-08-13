@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 1208282758259128200}
   - component: {fileID: 8553407438636549126}
   - component: {fileID: 690274475862058243}
+  - component: {fileID: 8361687654307214458}
   - component: {fileID: 3702841937658041620}
   - component: {fileID: 1880115612053107997}
+  - component: {fileID: 3817727820991196199}
   m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
@@ -72,6 +74,19 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 7246ec6b5d44c4c0a9d3c42208d6f571, type: 2}
   - {fileID: 2100000, guid: 0a46e482a75d3465e8acf69c7fb18ade, type: 2}
   - {fileID: 2100000, guid: 69c4e3f3d896049ed90a79374c3b326a, type: 2}
+--- !u!114 &8361687654307214458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518138459966322925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b787a5bda8b4bb0b6668a02cb6fd26e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.BoxHitReceiver
+  _indicator: {fileID: 5598707054059632858}
 --- !u!114 &3702841937658041620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.BoxStackAttribute
   _box: {fileID: 8553407438636549126}
-  _boxHitReceiver: {fileID: 4574978091860166743}
+  _boxHitReceiver: {fileID: 8361687654307214458}
   _boxVisuals:
   - {fileID: 1549297951903488557}
   - {fileID: 3895328804494487387}
@@ -102,6 +117,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4704ca4e8d24662b50453ad0d27b9f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entities.ArrayIndexAttribute
+--- !u!114 &3817727820991196199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518138459966322925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d59d17e94541adb01ef7001754863c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entities.BoxDebrisAttribute
+  _box: {fileID: 8553407438636549126}
+  _materials:
+  - {fileID: 2100000, guid: e2eb6d52e642c4b8e93ee39e9e368e8d, type: 2}
+  - {fileID: 2100000, guid: 47dc093f0bc794a08b2519cdd93fec78, type: 2}
+  - {fileID: 2100000, guid: 7246ec6b5d44c4c0a9d3c42208d6f571, type: 2}
+  - {fileID: 2100000, guid: 0a46e482a75d3465e8acf69c7fb18ade, type: 2}
+  - {fileID: 2100000, guid: 69c4e3f3d896049ed90a79374c3b326a, type: 2}
 --- !u!1 &1310896842878476543
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8862110015086253277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -129,7 +163,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1310896842878476543}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.000000119209275}
+  m_LocalPosition: {x: 0, y: 0, z: 0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -138,7 +172,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 1.037}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7665957486359806492
@@ -552,59 +586,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5078bccc4e681447b99e140a6c49bcf6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5800685149891089584}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5078bccc4e681447b99e140a6c49bcf6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4574978091860166743}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5078bccc4e681447b99e140a6c49bcf6, type: 3}
 --- !u!4 &7263320955635497079 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5078bccc4e681447b99e140a6c49bcf6, type: 3}
   m_PrefabInstance: {fileID: 7153623381327257500}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8036584756743086797 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5078bccc4e681447b99e140a6c49bcf6, type: 3}
-  m_PrefabInstance: {fileID: 7153623381327257500}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &5800685149891089584
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8036584756743086797}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4574978091860166743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8036584756743086797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b787a5bda8b4bb0b6668a02cb6fd26e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Entities.BoxDamageReceiver
-  _indicator: {fileID: 5598707054059632858}
-  _boxCollider: {fileID: 5800685149891089584}
 --- !u!23 &8396771502427603736 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 5078bccc4e681447b99e140a6c49bcf6, type: 3}

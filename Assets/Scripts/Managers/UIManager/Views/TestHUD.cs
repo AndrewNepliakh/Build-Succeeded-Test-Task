@@ -19,7 +19,7 @@ namespace UI
             UpdateAppearance();
 
             TankShooter.OnShootStatic += OnShootStatic;
-            Box.OnDespawnStatic += OnDespawnStatic;
+            Box.OnDespawnStaticEvent += OnDespawnStaticEvent;
         }
 
         private void OnShootStatic()
@@ -28,7 +28,7 @@ namespace UI
             UpdateAppearance();
         }
 
-        private void OnDespawnStatic()
+        private void OnDespawnStaticEvent()
         {
             _destroyedBoxes++;
             UpdateAppearance();
@@ -45,7 +45,7 @@ namespace UI
             base.Hide();
             
             TankShooter.OnShootStatic -= OnShootStatic;
-            Box.OnDespawnStatic -= OnDespawnStatic;
+            Box.OnDespawnStaticEvent -= OnDespawnStaticEvent;
         }
     }
 }
